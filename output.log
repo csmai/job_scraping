@@ -2,7 +2,7 @@ INFO:root:Begin the prf scraper script
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
@@ -27,7 +27,7 @@ INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
-INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
@@ -53,34 +53,34 @@ INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
-INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
-INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
@@ -154,7 +154,6 @@ INFO:root:Pozíció / projekt rövid leírása found
 INFO:root:Next element and its div is found
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása found
 INFO:root:Next element and its div is found
 INFO:root:Pozíció / projekt rövid leírása not found.
@@ -162,6 +161,7 @@ INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása found
 INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása found

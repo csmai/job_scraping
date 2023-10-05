@@ -68,6 +68,18 @@ def extract_job_tech_stack_from_result(soup):
     return tech_stack_list
 
 
+# Function to scrape the subpage to get the tech stack
+def scrape_subpage(url):
+    page = requests.get(url, headers=headers)
+    if page.status_code == 200:
+        soup = BeautifulSoup(page.text, "html.parser")
+        tech_stack_list = extract_job_tech_stack_from_result(soup)
+        return tech_stack_list
+    else:
+        logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
+        return None
+
+
 # Function to scrape the main page
 def scrape_main_page(url):
     page = requests.get(url, headers=headers)
@@ -76,18 +88,6 @@ def scrape_main_page(url):
         job_info = extract_job_info_from_result(soup)
         logging.info("Successful soup creation")
         return pd.DataFrame(job_info)
-    else:
-        logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
-        return None
-
-
-# Function to scrape the subpage to get the tech stack
-def scrape_subpage(url):
-    page = requests.get(url, headers=headers)
-    if page.status_code == 200:
-        soup = BeautifulSoup(page.text, "html.parser")
-        tech_stack_list = extract_job_tech_stack_from_result(soup)
-        return tech_stack_list
     else:
         logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
         return None
