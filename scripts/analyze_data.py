@@ -1,5 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from sqlalchemy import create_engine
+import os
+
+# Define constants
+DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
+TABLE_NAMES = ["data_eng_prf", "data_eng_nof"]
 
 
 def analyze_and_visualize_tech_stack(dataframe):
