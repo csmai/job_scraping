@@ -1,0 +1,189 @@
+INFO:root:Begin the prf scraper script
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Scraping for prf done. Number of data rows: 71
+INFO:root:Begin the database load for prf
+INFO:root:Data loaded into 'data_eng_prf' table.
+INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\prf_job_data.csv.
+INFO:root:Begin the nof scraper script
+INFO:root:In the scraper function
+INFO:root:Soup created
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása not found.
+INFO:root:Pozíció / projekt rövid leírása found
+INFO:root:Next element and its div is found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Scraping for nof done. Number of data rows: 18
+INFO:root:Begin the database load for nof
+INFO:root:Data loaded into 'data_eng_nof' table.
+INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\nof_job_data.csv.
