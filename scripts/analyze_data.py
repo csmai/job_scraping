@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine
 import os
+from common_utils import OUTPUT_CSV_FOLDER
 
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
@@ -27,6 +28,10 @@ def analyze_and_visualize_tech_stack(dataframe):
     tech_stack_df = pd.DataFrame(tech_stack, columns=["tech"])
     tech_stack_counts = tech_stack_df["tech"].value_counts()
 
+    # Print the top 10 most frequent tech stacks
+    print("Top 10 most frequent tech stacks:")
+    print(tech_stack_counts.head(10))
+
     # Plot the tech stack counts
     plt.figure(figsize=(10, 6))
     tech_stack_counts.plot(kind="bar")
@@ -40,8 +45,9 @@ if __name__ == "__main__":
     # Fetch data from the database
     combined_data = fetch_data_from_db()
 
-    # Save the combined data to a CSV (for analysis outside this script)
-    combined_data.to_csv("combined_data.csv", index=False)
+    # # Save the combined data to a CSV (for analysis outside this script)
+    # csv_filename = os.path.join(OUTPUT_CSV_FOLDER)
+    # combined_data.to_csv(csv_filename, index=False)
 
     # Analyze the tech stack based on the fetched data
     analyze_and_visualize_tech_stack(combined_data)
