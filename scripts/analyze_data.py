@@ -29,7 +29,7 @@ def analyze_and_visualize_tech_stack(dataframe):
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [
         item.upper()
-        for sublist in filtered_jobs["job_tech_stack"].dropna()
+        for sublist in dataframe["job_tech_stack"].dropna()
         for item in sublist
     ]
     # Replace variations of "ANGOL" (with B2, C1 suffix) with a single category "ANGOL"
@@ -48,7 +48,8 @@ def analyze_and_visualize_tech_stack(dataframe):
 
     # Create a colorful horizontal bar plot in Seaborn
     plt.figure(figsize=(10, 6))
-    colors = sns.color_palette("pastel", len(tech_stack_percentages))
+    colors = sns.color_palette("ch:s=.25,rot=-.25", len(tech_stack))
+
     ax = sns.barplot(
         x=tech_stack_percentages.head(10).values,
         y=tech_stack_percentages.head(10).index,
@@ -71,7 +72,13 @@ def analyze_and_visualize_tech_stack(dataframe):
 
     ax.set(xlabel="Percentage", ylabel="Tech Stack")
     ax.set_title("Top 10 Tech Stack Frequencies (Percentage)")
-    plt.grid(axis="x", linestyle="--", alpha=0.6)
+
+    # Hide the frame (spines) and x-axis
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    ax.axes.get_xaxis().set_visible(False)
 
     plt.show()
 
