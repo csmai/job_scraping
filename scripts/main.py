@@ -7,7 +7,7 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.types import JSON
 import os
-from common_utils import OUTPUT_CSV_FOLDER
+
 
 # Set up logging
 logging.basicConfig(
@@ -18,6 +18,9 @@ DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scr
 PRF_URL_1 = os.getenv("PRF_URL_1")
 PRF_URL_2 = os.getenv("PRF_URL_2")
 NOF_URL = os.getenv("NOF_URL")
+OUTPUT_CSV_FOLDER = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)), "generated_csv_files"
+)
 
 
 # Function to perform scraping

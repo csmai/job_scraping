@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sqlalchemy import create_engine
 import os
-from common_utils import OUTPUT_CSV_FOLDER
 
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
@@ -42,12 +42,20 @@ def analyze_and_visualize_tech_stack(dataframe):
     print("Top 10 most frequent tech stacks:")
     print(tech_stack_counts.head(10))
 
-    # Plot the tech stack counts
+    # Calculate percentages
+    total_techs = len(tech_stack)
+    tech_stack_percentages = (tech_stack_counts / total_techs) * 100
+
+    # Plot using Seaborn
     plt.figure(figsize=(10, 6))
-    tech_stack_counts.plot(kind="bar")
-    plt.xlabel("Tech Stack")
-    plt.ylabel("Frequency")
-    plt.title("Tech Stack Frequency")
+    ax = sns.barplot(
+        x=tech_stack_percentages.head(10).index,
+        y=tech_stack_percentages.head(10).values,
+    )
+    ax.set(xlabel="Tech Stack", ylabel="Percentage")
+    ax.set_title("Top 10 Tech Stack Frequencies (Percentage)")
+    plt.xticks(rotation=45, ha="right")
+
     plt.show()
 
 
