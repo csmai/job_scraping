@@ -46,15 +46,32 @@ def analyze_and_visualize_tech_stack(dataframe):
     total_techs = len(tech_stack)
     tech_stack_percentages = (tech_stack_counts / total_techs) * 100
 
-    # Plot using Seaborn
+    # Create a colorful horizontal bar plot in Seaborn
     plt.figure(figsize=(10, 6))
+    colors = sns.color_palette("pastel", len(tech_stack_percentages))
     ax = sns.barplot(
-        x=tech_stack_percentages.head(10).index,
-        y=tech_stack_percentages.head(10).values,
+        x=tech_stack_percentages.head(10).values,
+        y=tech_stack_percentages.head(10).index,
+        palette=colors,
     )
-    ax.set(xlabel="Tech Stack", ylabel="Percentage")
+
+    # Add percentages as text annotations
+    for p in ax.patches:
+        width = p.get_width()
+        ax.annotate(
+            f"{width:.2f}%",
+            xy=(width, p.get_y() + p.get_height() / 2),
+            xytext=(5, 0),
+            textcoords="offset points",
+            ha="center",
+            va="center",
+            fontsize=10,
+            color="black",
+        )
+
+    ax.set(xlabel="Percentage", ylabel="Tech Stack")
     ax.set_title("Top 10 Tech Stack Frequencies (Percentage)")
-    plt.xticks(rotation=45, ha="right")
+    plt.grid(axis="x", linestyle="--", alpha=0.6)
 
     plt.show()
 
