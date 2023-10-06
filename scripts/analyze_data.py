@@ -21,10 +21,20 @@ def fetch_data_from_db():
 
 
 def analyze_and_visualize_tech_stack(dataframe):
+    # Filter jobs with "Data" and "Engineer" in the job title
+    filtered_jobs = dataframe[
+        dataframe["job_title"].str.contains("Data", case=False)
+        & dataframe["job_title"].str.contains("Engineer", case=False)
+    ]
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [
-        item for sublist in dataframe["job_tech_stack"].dropna() for item in sublist
+        item.upper()
+        for sublist in filtered_jobs["job_tech_stack"].dropna()
+        for item in sublist
     ]
+    # Replace variations of "ANGOL" (with B2, C1 suffix) with a single category "ANGOL"
+    tech_stack = ["ANGOL" if "ANGOL" in tech else tech for tech in tech_stack]
+
     tech_stack_df = pd.DataFrame(tech_stack, columns=["tech"])
     tech_stack_counts = tech_stack_df["tech"].value_counts()
 
