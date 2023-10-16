@@ -82,6 +82,16 @@ def analyze_and_visualize_tech_stack(dataframe):
 
     plt.show()
 
+    # Save the figure to a file in the "presentation" folder
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    presentation_folder = os.path.join(script_dir, "..", "presentation")
+    if not os.path.exists(presentation_folder):
+        os.makedirs(presentation_folder)
+
+    graph_filename = os.path.join(presentation_folder, "res_tech_stack_graph.png")
+    plt.savefig(graph_filename)
+    plt.close()
+
 
 if __name__ == "__main__":
     # Fetch data from the database
