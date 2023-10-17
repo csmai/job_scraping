@@ -21,7 +21,7 @@ DB_DTYPE = {
     "company_name": VARCHAR(255),
     "job_summary": TEXT,
     "job_link": VARCHAR(255),
-    "job_tech_stack": ARRAY(VARCHAR),
+    "job_tech_stack": ARRAY(VARCHAR(length=255)),
 }
 PRF_URL = os.getenv("PRF_URL")
 NOF_URL = os.getenv("NOF_URL")

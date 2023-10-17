@@ -1,3 +1,4 @@
+from common_utils import search_kws
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -6,7 +7,10 @@ import os
 
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
-TABLE_NAMES = ["data_eng_prf", "data_eng_nof"]
+TABLE_NAMES = [
+    f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
+    f"{search_kws[0].lower()}_{search_kws[1].lower()}_nof",
+]
 
 
 # Function to fetch data from the database
@@ -21,10 +25,10 @@ def fetch_data_from_db():
 
 
 def analyze_and_visualize_tech_stack(dataframe):
-    # Filter jobs with "Data" and "Engineer" in the job title
+    # Filter jobs with the 2 search keywords in the job title
     filtered_jobs = dataframe[
-        dataframe["job_title"].str.contains("Data", case=False)
-        & dataframe["job_title"].str.contains("Engineer", case=False)
+        dataframe["job_title"].str.contains({search_kws[0]}, case=False)
+        & dataframe["job_title"].str.contains({search_kws[1]}, case=False)
     ]
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [

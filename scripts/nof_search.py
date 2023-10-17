@@ -9,8 +9,8 @@ from common_utils import headers
 
 # Use the configured logger from main.py
 logger = logging.getLogger(__name__)
-# Define base url based on envrinment variable: slice the first 22 characters
-NOF_URL_BASE = os.getenv("NOF_URL")[:22]
+# Define base url based on envrinment variable: slice the first 23 characters
+NOF_URL_BASE = os.getenv("NOF_URL")[:23]
 
 
 # Function to extract job titles and job links from the soup
