@@ -1,3 +1,4 @@
 generated_csv_files/
 html data samples/
 reference_csv_data/
+*/__pycache__/*
