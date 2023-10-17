@@ -15,12 +15,14 @@ logging.basicConfig(
 )
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
-PRF_URL_1 = os.getenv("PRF_URL_1")
-PRF_URL_2 = os.getenv("PRF_URL_2")
+PRF_URL = os.getenv("PRF_URL")
 NOF_URL = os.getenv("NOF_URL")
 OUTPUT_CSV_FOLDER = os.path.join(
     os.path.dirname(os.path.dirname(__file__)), "generated_csv_files"
 )
+
+# Set the search keywords (2 words required)
+search_kws = ("Data", "Engineer")
 
 
 # Function to perform scraping
@@ -33,10 +35,10 @@ def perform_scraping(prefix):
     for page_num in range(1, 2 + (prefix == "prf") * 3):
         # construct the search URL
         if prefix == "prf":
-            URL = f"{PRF_URL_1}{page_num}{PRF_URL_2}"
+            URL = f"{PRF_URL}{page_num},10,23,{search_kws[0].lower()}%20{search_kws[1].lower()}"
             scrape_function = prf_scrape_main_page
         elif prefix == "nof":
-            URL = f"{NOF_URL}{page_num}"
+            URL = f"{NOF_URL}{search_kws[0]}?criteria=keyword%3D{search_kws[1]}&page={page_num}"
             scrape_function = nof_scrape_main_page
         try:
             # conduct a request of the stated URL above:
