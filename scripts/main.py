@@ -1,11 +1,11 @@
 from prf_search import scrape_main_page as prf_scrape_main_page
 from nof_search import scrape_main_page as nof_scrape_main_page
+from common_utils import search_kws
 import pandas as pd
 import time
 import random
 import logging
-from sqlalchemy import create_engine
-from sqlalchemy.types import JSON
+from sqlalchemy import create_engine, VARCHAR, TEXT, ARRAY
 import os
 
 
@@ -15,14 +15,19 @@ logging.basicConfig(
 )
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
+DB_ENGINE = create_engine(DB_URI)
+DB_DTYPE = {
+    "job_title": VARCHAR(255),
+    "company_name": VARCHAR(255),
+    "job_summary": TEXT,
+    "job_link": VARCHAR(255),
+    "job_tech_stack": ARRAY(VARCHAR),
+}
 PRF_URL = os.getenv("PRF_URL")
 NOF_URL = os.getenv("NOF_URL")
 OUTPUT_CSV_FOLDER = os.path.join(
     os.path.dirname(os.path.dirname(__file__)), "generated_csv_files"
 )
-
-# Set the search keywords (2 words required)
-search_kws = ("Data", "Engineer")
 
 
 # Function to perform scraping
@@ -65,20 +70,22 @@ def perform_scraping(prefix):
     )
 
     # Begin the database load
-    table_name = f"data_eng_{prefix}"
-    logging.info(f"Begin the database load for {prefix}")
-    engine = create_engine(DB_URI)
+    table_name = f"{search_kws[0].lower()}_{search_kws[1].lower()}_{prefix}"
+    logging.info(f"Begin the database load for {prefix} prefix, to table {table_name}")
     all_job_info_df.to_sql(
         table_name,
-        engine,
+        DB_ENGINE,
         if_exists="replace",
         index=False,
-        dtype={"job_tech_stack": JSON},
+        dtype=DB_DTYPE,
     )
     logging.info(f"Data loaded into '{table_name}' table.")
 
     # Save to CSV
-    csv_filename = os.path.join(OUTPUT_CSV_FOLDER, f"{prefix}_job_data.csv")
+    csv_filename = os.path.join(
+        OUTPUT_CSV_FOLDER,
+        f"{prefix}_{search_kws[0].lower()}_{search_kws[1].lower()}_job_data.csv",
+    )
     all_job_info_df.to_csv(csv_filename, index=False)
     logging.info(f"Data loaded into {csv_filename}.")
 

@@ -2,11 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import logging
+import os
+
+# Set user agent in headers to mimic a web browser request
+from common_utils import headers
 
 # Use the configured logger from main.py
 logger = logging.getLogger(__name__)
-# Set user agent in headers to mimic a web browser request
-from common_utils import headers
+# Define base url based on envrinment variable: slice the first 22 characters
+NOF_URL_BASE = os.getenv("NOF_URL")[:22]
 
 
 # Function to extract job titles and job links from the soup
@@ -21,7 +25,7 @@ def extract_job_info_from_result(soup):
 
         job_title = item.find("h3", class_="posting-title__position").text.strip()
         if item.has_attr("href"):
-            job_link = f'https://nofluffjobs.com{item["href"]}'
+            job_link = f'{NOF_URL_BASE}{item["href"]}'
             company_name, job_summary, job_tech_stack = scrape_subpage(job_link)
 
         job_info.append(

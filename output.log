@@ -2,24 +2,76 @@ INFO:root:Begin the prf scraper script
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
@@ -30,128 +82,24 @@ INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:job_info collected
-INFO:root:Successful soup creation
-INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:img found
-ERROR:root:An error occurred: HTTPSConnectionPool(host='www.profession.hu', port=443): Read timed out. (read timeout=None)
-Traceback (most recent call last):
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connectionpool.py", line 403, in _make_request
-    self._validate_conn(conn)
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connectionpool.py", line 1053, in _validate_conn
-    conn.connect()
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connection.py", line 419, in connect
-    self.sock = ssl_wrap_socket(
-                ^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\util\ssl_.py", line 449, in ssl_wrap_socket
-    ssl_sock = _ssl_wrap_socket_impl(
-               ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\util\ssl_.py", line 493, in _ssl_wrap_socket_impl
-    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\ssl.py", line 517, in wrap_socket
-    return self.sslsocket_class._create(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\ssl.py", line 1075, in _create
-    self.do_handshake()
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\ssl.py", line 1346, in do_handshake
-    self._sslobj.do_handshake()
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connectionpool.py", line 798, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\util\retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\packages\six.py", line 770, in reraise
-    raise value
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connectionpool.py", line 714, in urlopen
-    httplib_response = self._make_request(
-                       ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connectionpool.py", line 406, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\urllib3\connectionpool.py", line 357, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='www.profession.hu', port=443): Read timed out. (read timeout=None)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\scripts\main.py", line 43, in perform_scraping
-    job_info_df = scrape_function(URL)
-                  ^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\scripts\prf_search.py", line 88, in scrape_main_page
-    job_info = extract_job_info_from_result(soup)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\scripts\prf_search.py", line 30, in extract_job_info_from_result
-    job_tech_stack = scrape_subpage(job_link)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\scripts\prf_search.py", line 73, in scrape_subpage
-    page = requests.get(url, headers=headers)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\requests\api.py", line 73, in get
-    return request("get", url, params=params, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\User\anaconda3\envs\MaCsLearnAdv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='www.profession.hu', port=443): Read timed out. (read timeout=None)
-INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:job_info collected
 INFO:root:Successful soup creation
-INFO:root:Scraping for prf done. Number of data rows: 57
-INFO:root:Begin the database load for prf
-INFO:root:Data loaded into 'data_eng_prf' table.
-INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\prf_job_data.csv.
+INFO:root:Scraping for prf done. Number of data rows: 81
+INFO:root:Begin the database load for prf prefix, to table data_engineer_prf
+INFO:root:Data loaded into 'data_engineer_prf' table.
+INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\prf_data_engineer_job_data.csv.
 INFO:root:Begin the nof scraper script
 INFO:root:In the scraper function
 INFO:root:Soup created
@@ -165,13 +113,10 @@ INFO:root:Next element and its div is found
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása found
-INFO:root:Next element and its div is found
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása found
-INFO:root:Next element and its div is found
+INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
@@ -183,7 +128,7 @@ INFO:root:Pozíció / projekt rövid leírása found
 INFO:root:Next element and its div is found
 INFO:root:job_info collected
 INFO:root:Successful soup creation
-INFO:root:Scraping for nof done. Number of data rows: 5
-INFO:root:Begin the database load for nof
-INFO:root:Data loaded into 'data_eng_nof' table.
-INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\nof_job_data.csv.
+INFO:root:Scraping for nof done. Number of data rows: 4
+INFO:root:Begin the database load for nof prefix, to table data_engineer_nof
+INFO:root:Data loaded into 'data_engineer_nof' table.
+INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\nof_data_engineer_job_data.csv.
