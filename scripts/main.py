@@ -5,7 +5,7 @@ import pandas as pd
 import time
 import random
 import logging
-from sqlalchemy import create_engine, VARCHAR, TEXT, ARRAY
+from sqlalchemy import create_engine
 import os
 
 
@@ -15,14 +15,6 @@ logging.basicConfig(
 )
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
-DB_ENGINE = create_engine(DB_URI)
-DB_DTYPE = {
-    "job_title": VARCHAR(255),
-    "company_name": VARCHAR(255),
-    "job_summary": TEXT,
-    "job_link": VARCHAR(255),
-    "job_tech_stack": ARRAY(VARCHAR(length=255)),
-}
 PRF_URL = os.getenv("PRF_URL")
 NOF_URL = os.getenv("NOF_URL")
 OUTPUT_CSV_FOLDER = os.path.join(
@@ -50,10 +42,8 @@ def perform_scraping(prefix):
             job_info_df = scrape_function(URL)
 
             if job_info_df is not None:
-                # Ensure job_tech_stack is a list of strings
-                job_info_df["job_tech_stack"] = job_info_df["job_tech_stack"].apply(
-                    list
-                )
+                print(type(job_info_df["job_tech_stack"].iloc[0]))
+                print((job_info_df["job_tech_stack"].iloc[0]))
                 # Append the scraped data to the all_job_info_df
                 all_job_info_df = pd.concat(
                     (all_job_info_df, job_info_df), ignore_index=True
@@ -72,12 +62,12 @@ def perform_scraping(prefix):
     # Begin the database load
     table_name = f"{search_kws[0].lower()}_{search_kws[1].lower()}_{prefix}"
     logging.info(f"Begin the database load for {prefix} prefix, to table {table_name}")
+    engine = create_engine(DB_URI)
     all_job_info_df.to_sql(
         table_name,
-        DB_ENGINE,
+        engine,
         if_exists="replace",
         index=False,
-        dtype=DB_DTYPE,
     )
     logging.info(f"Data loaded into '{table_name}' table.")
 
