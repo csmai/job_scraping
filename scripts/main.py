@@ -26,21 +26,23 @@ OUTPUT_CSV_FOLDER = os.path.join(
 
 def construct_url(prefix, page_num):
     """Constructs the search URL based on the prefix and page number"""
-    url = None
     if prefix == "prf":
         url = f"{PRF_URL}{page_num},10,23,{search_kws[0].lower()}%20{search_kws[1].lower()}"
     elif prefix == "nof":
         url = f"{NOF_URL}{search_kws[0]}?criteria=keyword%3D{search_kws[1]}&page={page_num}"
+    else:
+        url = None
     return url
 
 
 def define_scraper_func(prefix):
     """Define the scraper function based on the prefix"""
-    func = None
     if prefix == "prf":
         func = prf_scrape_main_page
     elif prefix == "nof":
         func = nof_scrape_main_page
+    else:
+        func = None
     return func
 
 
