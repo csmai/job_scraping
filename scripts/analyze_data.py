@@ -80,7 +80,7 @@ def analyze_and_visualize_tech_stack(dataframe):
         )
 
     ax.set(xlabel="Percentage", ylabel="Tech Stack")
-    ax.set_title(f"{search_kws[0]} {search_kws[1]}'s Top 10 Tech Stack")
+    ax.set_title(f"{search_kws[0]} {search_kws[1]}'s Top 15 Tech Stack")
 
     # Hide the frame (spines) and x-axis
     ax.spines["top"].set_visible(False)
