@@ -31,12 +31,10 @@ def analyze_and_visualize_tech_stack(dataframe):
         dataframe["job_title"].str.contains(search_kws[0], case=False)
         & dataframe["job_title"].str.contains(search_kws[1], case=False)
     ]
-    # Convert the strings to actual lists using ast.literal_eval
+    # Convert the json strings to actual lists using ast.literal_eval
     filtered_jobs["job_tech_stack"] = filtered_jobs["job_tech_stack"].apply(
         lambda x: ast.literal_eval(x) if isinstance(x, str) else x
     )
-    print(filtered_jobs["job_tech_stack"].iloc[0])
-    print(type(filtered_jobs["job_tech_stack"].iloc[0]))
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [
         item.upper()
@@ -49,21 +47,21 @@ def analyze_and_visualize_tech_stack(dataframe):
     tech_stack_df = pd.DataFrame(tech_stack, columns=["tech"])
     tech_stack_counts = tech_stack_df["tech"].value_counts()
 
-    # Print the top 10 most frequent tech stacks
-    print("Top 10 most frequent tech stacks:")
-    print(tech_stack_counts.head(19))
+    # Print the top 15 most frequent tech stacks
+    print(f"{search_kws}Top 15 most frequent tech stacks:")
+    print(tech_stack_counts.head(15))
 
     # Calculate percentages
     total_techs = len(tech_stack)
     tech_stack_percentages = (tech_stack_counts / total_techs) * 100
 
     # Create a colorful horizontal bar plot in Seaborn
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(15, 6))
     colors = sns.color_palette("ch:s=0.25,rot=-0.25", len(tech_stack))
 
     ax = sns.barplot(
-        x=tech_stack_percentages.head(19).values,
-        y=tech_stack_percentages.head(19).index,
+        x=tech_stack_percentages.head(15).values,
+        y=tech_stack_percentages.head(15).index,
         palette=colors,
     )
 
@@ -82,7 +80,7 @@ def analyze_and_visualize_tech_stack(dataframe):
         )
 
     ax.set(xlabel="Percentage", ylabel="Tech Stack")
-    ax.set_title("Top 10 Tech Stack Frequencies (Percentage)")
+    ax.set_title(f"{search_kws[0]} {search_kws[1]}'s Top 10 Tech Stack")
 
     # Hide the frame (spines) and x-axis
     ax.spines["top"].set_visible(False)
@@ -97,10 +95,6 @@ def analyze_and_visualize_tech_stack(dataframe):
 if __name__ == "__main__":
     # Fetch data from the database
     combined_data = fetch_data_from_db()
-
-    # # Save the combined data to a CSV (for analysis outside this script)
-    # csv_filename = os.path.join(OUTPUT_CSV_FOLDER)
-    # combined_data.to_csv(csv_filename, index=False)
 
     # Analyze the tech stack based on the fetched data
     analyze_and_visualize_tech_stack(combined_data)
