@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sqlalchemy import create_engine
 import os
+import ast
 
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
@@ -27,9 +28,15 @@ def fetch_data_from_db():
 def analyze_and_visualize_tech_stack(dataframe):
     # Filter jobs with the 2 search keywords in the job title
     filtered_jobs = dataframe[
-        dataframe["job_title"].str.contains({search_kws[0]}, case=False)
-        & dataframe["job_title"].str.contains({search_kws[1]}, case=False)
+        dataframe["job_title"].str.contains(search_kws[0], case=False)
+        & dataframe["job_title"].str.contains(search_kws[1], case=False)
     ]
+    # Convert the strings to actual lists using ast.literal_eval
+    filtered_jobs["job_tech_stack"] = filtered_jobs["job_tech_stack"].apply(
+        lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+    )
+    print(filtered_jobs["job_tech_stack"].iloc[0])
+    print(type(filtered_jobs["job_tech_stack"].iloc[0]))
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [
         item.upper()

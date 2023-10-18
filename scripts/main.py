@@ -7,6 +7,7 @@ import random
 import logging
 from sqlalchemy import create_engine
 import os
+import json
 
 
 # Set up logging
@@ -42,6 +43,10 @@ def perform_scraping(prefix):
             job_info_df = scrape_function(URL)
 
             if job_info_df is not None:
+                # Convert tech stack strings to valid JSON arrays
+                job_info_df["job_tech_stack"] = job_info_df["job_tech_stack"].apply(
+                    lambda x: json.dumps(x)
+                )
                 print(type(job_info_df["job_tech_stack"].iloc[0]))
                 print((job_info_df["job_tech_stack"].iloc[0]))
                 # Append the scraped data to the all_job_info_df
