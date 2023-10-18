@@ -5,6 +5,10 @@ import seaborn as sns
 from sqlalchemy import create_engine
 import os
 import ast
+import logging
+
+# Use the configured logger from main.py
+logger = logging.getLogger(__name__)
 
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
@@ -32,9 +36,15 @@ def analyze_and_visualize_tech_stack(dataframe):
         & dataframe["job_title"].str.contains(search_kws[1], case=False)
     ]
     # Convert the json strings to actual lists using ast.literal_eval
-    filtered_jobs["job_tech_stack"] = filtered_jobs["job_tech_stack"].apply(
-        lambda x: ast.literal_eval(x) if isinstance(x, str) else x
-    )
+    print("TYPE")
+    print(type(filtered_jobs["job_tech_stack"].iloc[0]))
+    print(filtered_jobs["job_tech_stack"].iloc[0])
+    try:
+        filtered_jobs["job_tech_stack"] = filtered_jobs["job_tech_stack"].apply(
+            lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+        )
+    except Exception as e:
+        print(f"An error occurred: , {str(e)}")
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [
         item.upper()

@@ -2,16 +2,16 @@ INFO:root:Begin the prf scraper script
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
@@ -21,62 +21,12 @@ INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
 INFO:root:img found
 INFO:root:job_info collected
 INFO:root:Successful soup creation
-INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:job_info collected
-INFO:root:Successful soup creation
-INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:job_info collected
-INFO:root:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: []
 INFO:root:Start list creation: search soup
 INFO:root:job_card_items found
 INFO:root:Image with alt="technologies" not found.
@@ -84,6 +34,61 @@ INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: []
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
@@ -102,7 +107,9 @@ INFO:root:img found
 INFO:root:img found
 INFO:root:job_info collected
 INFO:root:Successful soup creation
-INFO:root:Scraping for prf done. Number of data rows: 87
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: []
+INFO:root:Scraping for prf done. Number of data rows: 86
 INFO:root:Begin the database load for prf prefix, to table data_engineer_prf
 INFO:root:Data loaded into 'data_engineer_prf' table.
 INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\prf_data_engineer_job_data.csv.
@@ -123,20 +130,13 @@ INFO:root:Pozíció / projekt rövid leírása found
 INFO:root:Next element and its div is found
 INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása found
-INFO:root:Next element and its div is found
-INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása found
-INFO:root:Next element and its div is found
-INFO:root:Pozíció / projekt rövid leírása not found.
-INFO:root:Pozíció / projekt rövid leírása not found.
 INFO:root:Pozíció / projekt rövid leírása found
 INFO:root:Next element and its div is found
 INFO:root:job_info collected
 INFO:root:Successful soup creation
-INFO:root:Scraping for nof done. Number of data rows: 5
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: ["Python", "Scala", "SQL", "Data engineering", "ETL", "ELT", "Database", "Orchestration", "Cloud", "Big data", "Spark", "PySpark", "Data flows", "Angol (B2)"]
+INFO:root:Scraping for nof done. Number of data rows: 3
 INFO:root:Begin the database load for nof prefix, to table data_engineer_nof
 INFO:root:Data loaded into 'data_engineer_nof' table.
 INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\nof_data_engineer_job_data.csv.
