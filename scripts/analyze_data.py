@@ -11,50 +11,48 @@ import logging
 logging.basicConfig(
     level=logging.INFO, filename="output.log", filemode="w", encoding="utf-8"
 )
-# Use the configured logger from main.py
 logger = logging.getLogger(__name__)
 
-# Define constants
+# Define Database URI
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
-TABLE_NAMES = [
-    f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
-    f"{search_kws[0].lower()}_{search_kws[1].lower()}_nof",
-]
 
 
-# Function to fetch data from the database
-def fetch_data_from_db():
+def fetch_data_from_db(table_names):
+    """Function to fetch data from the database"""
     engine = create_engine(DB_URI)
     combined_data = pd.DataFrame()
-    for table_name in TABLE_NAMES:
-        query = f"SELECT * FROM {table_name};"
+    for table in table_names:
+        query = f"SELECT * FROM {table};"
         data_df = pd.read_sql_query(query, engine)
         combined_data = pd.concat([combined_data, data_df], ignore_index=True)
     return combined_data
 
 
-def analyze_and_visualize_tech_stack(dataframe):
+def preprocess_tech_stack(str_series):
+    """Convert the json strings to actual lists using ast.literal_eval"""
+    logging.info(f"Type of first rows tech stack :{type(str_series.iloc[0])}")
+    logging.info(f"first row of tech stack :{str_series.iloc[0]}")
+    try:
+        list_series = str_series.apply(
+            lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+        )
+    except Exception as e:
+        logging.info(f"An error occurred: {str(e)}")
+    return list_series
+
+
+def analyze_tech_stack(dataframe):
     # Filter jobs with the 2 search keywords in the job title
     filtered_jobs = dataframe[
         dataframe["job_title"].str.contains(search_kws[0], case=False)
         & dataframe["job_title"].str.contains(search_kws[1], case=False)
     ]
-    # Convert the json strings to actual lists using ast.literal_eval
-    logging.info(
-        f'Type of first rows tech stack :{type(filtered_jobs["job_tech_stack"].iloc[0])}'
-    )
-    logging.info(f'first row of tech stack :{filtered_jobs["job_tech_stack"].iloc[0]}')
-    try:
-        filtered_jobs["job_tech_stack"] = filtered_jobs["job_tech_stack"].apply(
-            lambda x: ast.literal_eval(x) if isinstance(x, str) else x
-        )
-    except Exception as e:
-        logging.info(f"An error occurred: , {str(e)}")
-    # 'job_tech_stack' is a column containing tech stack information in the DataFrame
+
+    # Convert the json strings to actual lists
+    tech_stack_list = preprocess_tech_stack(filtered_jobs["job_tech_stack"])
+    # Get upper case and remove missing data
     tech_stack = [
-        item.upper()
-        for sublist in filtered_jobs["job_tech_stack"].dropna()
-        for item in sublist
+        item.upper() for sublist in tech_stack_list.dropna() for item in sublist
     ]
     # Replace variations of "ANGOL" (with B2, C1 suffix) with a single category "ANGOL"
     tech_stack = ["ANGOL" if "ANGOL" in tech else tech for tech in tech_stack]
@@ -65,7 +63,10 @@ def analyze_and_visualize_tech_stack(dataframe):
     # Log the top 15 most frequent tech stacks
     logging.info(f"{search_kws}Top 15 most frequent tech stacks:")
     logging.info(tech_stack_counts.head(15))
+    return tech_stack, tech_stack_counts
 
+
+def visualize_tech_stack(tech_stack, tech_stack_counts):
     # Calculate percentages
     total_techs = len(tech_stack)
     tech_stack_percentages = (tech_stack_counts / total_techs) * 100
@@ -105,11 +106,18 @@ def analyze_and_visualize_tech_stack(dataframe):
     ax.axes.get_xaxis().set_visible(False)
 
     plt.show()
+    return
 
 
 if __name__ == "__main__":
+    # get table name constants
+    table_names = [
+        f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
+        f"{search_kws[0].lower()}_{search_kws[1].lower()}_nof",
+    ]
     # Fetch data from the database
-    combined_data = fetch_data_from_db()
+    combined_data = fetch_data_from_db(table_names)
 
     # Analyze the tech stack based on the fetched data
-    analyze_and_visualize_tech_stack(combined_data)
+    tech_stack, tech_stack_counts = analyze_tech_stack(combined_data)
+    visualize_tech_stack(tech_stack, tech_stack_counts)
