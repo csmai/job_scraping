@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+from typing import List, Dict, Tuple
 import pandas as pd
 import logging
 import os
+
 
 # Set user agent in headers to mimic a web browser request
 from common_utils import headers
@@ -14,8 +16,8 @@ NOF_URL_BASE = os.getenv("NOF_URL")[:23]
 
 
 # Function to extract job titles and job links from the soup
-def extract_job_info_from_result(soup):
-    job_info = []
+def extract_job_info_from_result(soup: BeautifulSoup) -> List[Dict]:
+    job_info: List[Dict] = []
     logging.info("Start list creation: search soup")
     job_items = soup.find_all("a", class_="posting-list-item")
     logging.info("job_card_items found")
@@ -42,7 +44,7 @@ def extract_job_info_from_result(soup):
 
 
 # Function to extract job tech stack from the soup
-def extract_job_tech_stack_from_result(soup):
+def extract_job_tech_stack_from_result(soup: BeautifulSoup) -> List[str]:
     tech_stack_list = []
     # Find the musts_section
     musts_section = soup.find("section", {"branch": "musts"})
@@ -60,14 +62,14 @@ def extract_job_tech_stack_from_result(soup):
 
 
 # Function to extract job summary from the soup
-def extract_job_summary_from_result(soup):
+def extract_job_summary_from_result(soup: BeautifulSoup) -> str:
     job_summary = None
 
     # Find the desired <h2> element
     h2_elements = soup.find_all("h2")
     for h2 in h2_elements:
         if "projekt r" in h2.get_text().strip():
-            logging.info("Pozíció / projekt rövid leírása found")
+            logging.info("'projekt r' text found from 'projekt rövid leírása'")
             # Get the next sibling element (which contains the desired text)
             next_element = h2.find_next_sibling("nfj-read-more")
             if next_element and next_element.div:
@@ -75,14 +77,14 @@ def extract_job_summary_from_result(soup):
                 logging.info("Next element and its div is found")
                 break
             else:
-                logging.info("Next element or its div's of Pozíció's h2 is not found.")
+                logging.info("Next element or its div of 'projekt r's h2 is not found.")
         else:
-            logging.info("Pozíció / projekt rövid leírása not found.")
+            logging.info("'projekt r' text from 'projekt rövid leírása' not found")
     return job_summary
 
 
 # Function to scrape the subpage to get the tech stack
-def scrape_subpage(url):
+def scrape_subpage(url: str) -> Tuple[str, str, List[str]]:
     page = requests.get(url, headers=headers)
     if page.status_code == 200:
         soup = BeautifulSoup(page.text, "html.parser")
@@ -92,11 +94,11 @@ def scrape_subpage(url):
         return company_name, job_summary, tech_stack_list
     else:
         logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
-        return None
+        return "", "", []
 
 
 # Function to scrape the main page
-def scrape_main_page(url):
+def scrape_main_page(url: str) -> pd.DataFrame:
     page = requests.get(url, headers=headers)
     logging.info("In the scraper function")
     if page.status_code == 200:
@@ -107,4 +109,4 @@ def scrape_main_page(url):
         return pd.DataFrame(job_info)
     else:
         logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
-        return None
+        return pd.DataFrame()
