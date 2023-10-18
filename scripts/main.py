@@ -8,6 +8,7 @@ import logging
 from sqlalchemy import create_engine
 import os
 import json
+import subprocess
 
 
 # Set up logging
@@ -91,3 +92,6 @@ if __name__ == "__main__":
 
     # Perform scraping for nof website
     perform_scraping("nof")
+
+    # Analyze and Visualize the Data
+    subprocess.run(["python", os.path.join("scripts", "analyze_data.py")])
