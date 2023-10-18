@@ -126,10 +126,8 @@ def get_and_store_job_data(prefix):
 
 
 if __name__ == "__main__":
-    # Get and store all the job data from prf website
+    # Get and store all the job data from prf and nof websites
     get_and_store_job_data("prf")
-
-    # Get and store all the job data from nof website
     get_and_store_job_data("nof")
 
     # Analyze and Visualize the Data

@@ -7,6 +7,10 @@ import os
 import ast
 import logging
 
+# Configure logging to use the same file handler and level as main.py
+logging.basicConfig(
+    level=logging.INFO, filename="output.log", filemode="w", encoding="utf-8"
+)
 # Use the configured logger from main.py
 logger = logging.getLogger(__name__)
 
@@ -36,15 +40,16 @@ def analyze_and_visualize_tech_stack(dataframe):
         & dataframe["job_title"].str.contains(search_kws[1], case=False)
     ]
     # Convert the json strings to actual lists using ast.literal_eval
-    print("TYPE")
-    print(type(filtered_jobs["job_tech_stack"].iloc[0]))
-    print(filtered_jobs["job_tech_stack"].iloc[0])
+    logging.info(
+        f'Type of first rows tech stack :{type(filtered_jobs["job_tech_stack"].iloc[0])}'
+    )
+    logging.info(f'first row of tech stack :{filtered_jobs["job_tech_stack"].iloc[0]}')
     try:
         filtered_jobs["job_tech_stack"] = filtered_jobs["job_tech_stack"].apply(
             lambda x: ast.literal_eval(x) if isinstance(x, str) else x
         )
     except Exception as e:
-        print(f"An error occurred: , {str(e)}")
+        logging.info(f"An error occurred: , {str(e)}")
     # 'job_tech_stack' is a column containing tech stack information in the DataFrame
     tech_stack = [
         item.upper()
@@ -57,9 +62,9 @@ def analyze_and_visualize_tech_stack(dataframe):
     tech_stack_df = pd.DataFrame(tech_stack, columns=["tech"])
     tech_stack_counts = tech_stack_df["tech"].value_counts()
 
-    # Print the top 15 most frequent tech stacks
-    print(f"{search_kws}Top 15 most frequent tech stacks:")
-    print(tech_stack_counts.head(15))
+    # Log the top 15 most frequent tech stacks
+    logging.info(f"{search_kws}Top 15 most frequent tech stacks:")
+    logging.info(tech_stack_counts.head(15))
 
     # Calculate percentages
     total_techs = len(tech_stack)
