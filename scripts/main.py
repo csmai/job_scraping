@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 import os
 import json
 import subprocess
+from typing import Optional
 
 
 # Set up logging
@@ -24,29 +25,27 @@ OUTPUT_CSV_FOLDER = os.path.join(
 )
 
 
-def construct_url(prefix, page_num):
+def construct_url(prefix: str, page_num: int) -> Optional[str]:
     """Constructs the search URL based on the prefix and page number"""
+    url: Optional[str] = None
     if prefix == "prf":
         url = f"{PRF_URL}{page_num},10,23,{search_kws[0].lower()}%20{search_kws[1].lower()}"
     elif prefix == "nof":
         url = f"{NOF_URL}{search_kws[0]}?criteria=keyword%3D{search_kws[1]}&page={page_num}"
-    else:
-        url = None
     return url
 
 
-def define_scraper_func(prefix):
+def define_scraper_func(prefix: str) -> Optional[callable]:
     """Define the scraper function based on the prefix"""
+    func: Optional[callable] = None
     if prefix == "prf":
         func = prf_scrape_main_page
     elif prefix == "nof":
         func = nof_scrape_main_page
-    else:
-        func = None
     return func
 
 
-def convert_series_to_json(series):
+def convert_series_to_json(series: Optional[pd.Series]) -> Optional[pd.Series]:
     """Convert a series of strings to valid JSON arrays"""
     if series is not None:
         series = series.apply(lambda x: json.dumps(x))
@@ -57,7 +56,7 @@ def convert_series_to_json(series):
     return series
 
 
-def perform_scraping(prefix):
+def perform_scraping(prefix: str) -> pd.DataFrame:
     """Function to perform scraping with rate limiting"""
     # Initialize an empty DataFrame to store all job info
     all_job_info_df = pd.DataFrame()
@@ -88,7 +87,7 @@ def perform_scraping(prefix):
     return all_job_info_df
 
 
-def load_data_to_db(prefix, df_to_load):
+def load_data_to_db(prefix: str, df_to_load: pd.DataFrame) -> None:
     """Load all the job data for the given prefix to a database"""
     table_name = f"{search_kws[0].lower()}_{search_kws[1].lower()}_{prefix}"
     logging.info(f"Begin the database load for {prefix} prefix, to table {table_name}")
@@ -103,7 +102,7 @@ def load_data_to_db(prefix, df_to_load):
     return
 
 
-def load_data_to_csv(prefix, df_to_load):
+def load_data_to_csv(prefix: str, df_to_load: pd.DataFrame) -> None:
     """Load all the job data for the given prefix to a csv file"""
     csv_filename = os.path.join(
         OUTPUT_CSV_FOLDER,
@@ -114,7 +113,7 @@ def load_data_to_csv(prefix, df_to_load):
     return
 
 
-def get_and_store_job_data(prefix):
+def get_and_store_job_data(prefix: str) -> None:
     """Get and store all the job data for a website defined with a prefix"""
 
     # Perform scraping with rate limiting"
