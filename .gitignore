@@ -4,3 +4,4 @@ html data samples/
 reference_csv_data/
 logs/
 .vscode/
+output.log
