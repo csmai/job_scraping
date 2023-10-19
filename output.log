@@ -1,20 +1,57 @@
-INFO:root:Type of first rows tech stack :<class 'str'>
-INFO:root:first row of tech stack :["SQL", "BI", "MSSQL", "PYTHON"]
-INFO:root:('Data', 'engineer')Top 15 most frequent tech stacks:
-INFO:root:tech
-SQL           7
-PYTHON        5
-ANGOL         3
-LINUX         2
-AZURE         2
-POWERBI       2
-BIG DATA      2
-BI            2
-UNIX          1
-CLOUDERA      1
-HADOOP        1
-AWS           1
-DATABASE      1
-DATA FLOWS    1
-PYSPARK       1
-Name: count, dtype: int64
+INFO:root:Begin the prf scraper script
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: []
+INFO:root:Start list creation: search soup
+INFO:root:job_card_items found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: []

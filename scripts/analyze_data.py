@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sqlalchemy import create_engine
-from typing import List
+from typing import List, Tuple
 import os
 import ast
 import logging
@@ -45,7 +45,7 @@ def filter_jobs_by_title(dataframe: pd.DataFrame) -> pd.DataFrame:
     ]
 
 
-def analyze_tech_stack(dataframe: pd.DataFrame) -> List[str]:
+def analyze_tech_stack(dataframe: pd.DataFrame) -> Tuple[List[str], pd.Series]:
     # Filter jobs with the 2 search keywords in the job title
     filtered_jobs = filter_jobs_by_title(dataframe)
     # Convert the json strings to actual lists
@@ -56,6 +56,8 @@ def analyze_tech_stack(dataframe: pd.DataFrame) -> List[str]:
     ]
     # Replace variations of "ANGOL" (with B2, C1 suffix) with a single category "ANGOL"
     tech_stack = ["ANGOL" if "ANGOL" in tech else tech for tech in tech_stack]
+    logging.info(f"Tech stack type: {type(tech_stack)}")
+    logging.info(f"Tech stack type: {tech_stack}")
 
     tech_stack_df = pd.DataFrame(tech_stack, columns=["tech"])
     tech_stack_counts = tech_stack_df["tech"].value_counts()
