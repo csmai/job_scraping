@@ -1,6 +1,6 @@
 from prf_search import scrape_main_page as prf_scrape_main_page
 from nof_search import scrape_main_page as nof_scrape_main_page
-from common_utils import search_kws
+from config import search_kws
 import pandas as pd
 import time
 import random

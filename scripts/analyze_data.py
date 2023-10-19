@@ -1,4 +1,4 @@
-from common_utils import search_kws
+from config import search_kws
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
