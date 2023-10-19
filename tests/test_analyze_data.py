@@ -7,6 +7,19 @@ from scripts.analyze_data import (
     analyze_tech_stack,
 )
 
+# Define common data for testing
+job_tech_stack_str_list = [
+    '["Python", "SQL"]',
+    '["Java", "Python", "Angol (B2)"]',
+    "[]",
+]
+job_tech_stack_list_list = [["Python", "SQL"], ["Java", "Python", "Angol (B2)"], []]
+job_title_list = [
+    "Python Developer",
+    "Senior Python Developer",
+    "Python Developer",
+]
+
 
 def test_fetch_data_from_db():
     # Create a MagicMock for the create_engine function
@@ -30,16 +43,8 @@ def test_fetch_data_from_db():
 
 
 def test_preprocess_tech_stack():
-    input_series = pd.Series(
-        [
-            '["Python", "SQL"]',
-            '["Java", "Python", "Angol (B2)"]',
-            "[]",
-        ]
-    )
-    expected_series = pd.Series(
-        [["Python", "SQL"], ["Java", "Python", "Angol (B2)"], []]
-    )
+    input_series = pd.Series(job_tech_stack_str_list)
+    expected_series = pd.Series(job_tech_stack_list_list)
 
     result = preprocess_tech_stack(input_series)
 
@@ -50,21 +55,11 @@ def test_preprocess_tech_stack():
 def test_analyze_tech_stack(mock_preprocess_tech_stack):
     mocked_data = pd.DataFrame(
         {
-            "job_title": [
-                "Python Developer",
-                "Senior Python Developer",
-                "Python Developer",
-            ],
-            "job_tech_stack": [
-                '["Python", "SQL"]',
-                '["Java", "Python", "Angol (B2)"]',
-                '[""]',
-            ],
+            "job_title": job_title_list,
+            "job_tech_stack": job_tech_stack_str_list,
         }
     )
-    mock_preprocess_tech_stack.return_value = pd.Series(
-        [["Python", "SQL"], ["Java", "Python", "Angol (B2)"], []]
-    )
+    mock_preprocess_tech_stack.return_value = pd.Series(job_tech_stack_list_list)
 
     tech_stack, tech_stack_counts = analyze_tech_stack(mocked_data)
 
