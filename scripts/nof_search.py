@@ -15,8 +15,8 @@ logger = logging.getLogger(__name__)
 NOF_URL_BASE = os.getenv("NOF_URL")[:23]
 
 
-# Function to extract job titles and job links from the soup
 def extract_job_info_from_result(soup: BeautifulSoup) -> List[Dict]:
+    """Function to extract job titles and job links from the soup"""
     job_info: List[Dict] = []
     logging.info("Start list creation: search soup")
     job_items = soup.find_all("a", class_="posting-list-item")
@@ -43,9 +43,9 @@ def extract_job_info_from_result(soup: BeautifulSoup) -> List[Dict]:
     return job_info
 
 
-# Function to extract job tech stack from the soup
 def extract_job_tech_stack_from_result(soup: BeautifulSoup) -> List[str]:
-    tech_stack_list = []
+    """Function to extract job tech stack from the soup"""
+    tech_stack_list: List[str] = []
     # Find the musts_section
     musts_section = soup.find("section", {"branch": "musts"})
 
@@ -53,7 +53,6 @@ def extract_job_tech_stack_from_result(soup: BeautifulSoup) -> List[str]:
     li_elements = musts_section.find_all("li")
 
     # Extract and print the text from each <li> element
-
     if li_elements:
         tech_stack_list = [str(li.get_text().strip()) for li in li_elements]
     else:
@@ -61,9 +60,9 @@ def extract_job_tech_stack_from_result(soup: BeautifulSoup) -> List[str]:
     return tech_stack_list
 
 
-# Function to extract job summary from the soup
 def extract_job_summary_from_result(soup: BeautifulSoup) -> str:
-    job_summary = None
+    """Function to extract job summary from the soup"""
+    job_summary: str = ""
 
     # Find the desired <h2> element
     h2_elements = soup.find_all("h2")
@@ -83,8 +82,8 @@ def extract_job_summary_from_result(soup: BeautifulSoup) -> str:
     return job_summary
 
 
-# Function to scrape the subpage to get the tech stack
 def scrape_subpage(url: str) -> Tuple[str, str, List[str]]:
+    """Function to scrape the subpage to get the tech stack"""
     page = requests.get(url, headers=headers)
     if page.status_code == 200:
         soup = BeautifulSoup(page.text, "html.parser")
@@ -97,8 +96,8 @@ def scrape_subpage(url: str) -> Tuple[str, str, List[str]]:
         return "", "", []
 
 
-# Function to scrape the main page
 def scrape_main_page(url: str) -> pd.DataFrame:
+    """Function to scrape the main page"""
     page = requests.get(url, headers=headers)
     logging.info("In the scraper function")
     if page.status_code == 200:
