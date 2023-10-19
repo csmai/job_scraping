@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 from scripts.analyze_data import (
     fetch_data_from_db,
     preprocess_tech_stack,
@@ -42,14 +42,19 @@ def test_preprocess_tech_stack():
     pd.testing.assert_series_equal(result, expected_series)
 
 
-def test_analyze_tech_stack():
+@patch("scripts.analyze_data.preprocess_tech_stack")
+def test_analyze_tech_stack(mock_preprocess_tech_stack):
     mocked_data = pd.DataFrame(
-        {"job_title": ["Python Developer"], "job_tech_stack": [["Python", "Java"]]}
+        {
+            "job_title": ["Python Developer", "Java Developer"],
+            "job_tech_stack": ['["Python", "SQL"]', '["Java"]'],
+        }
     )
+    mock_preprocess_tech_stack.return_value = pd.Series([["Python", "SQL"], ["Java"]])
 
     tech_stack, tech_stack_counts = analyze_tech_stack(mocked_data)
 
-    expected_tech_stack = ["PYTHON", "JAVA"]
+    expected_tech_stack = ["PYTHON", "SQL"]
     expected_tech_stack_counts = pd.Series([1, 1], name="tech")
 
     assert tech_stack == expected_tech_stack
