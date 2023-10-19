@@ -46,15 +46,21 @@ def test_preprocess_tech_stack():
 def test_analyze_tech_stack(mock_preprocess_tech_stack):
     mocked_data = pd.DataFrame(
         {
-            "job_title": ["Python Developer", "Java Developer"],
-            "job_tech_stack": ['["Python", "SQL"]', '["Java"]'],
+            "job_title": [
+                "Python Developer",
+                "Senior Python Developer",
+                "Python Developer",
+            ],
+            "job_tech_stack": ['["Python", "SQL"]', '["Java", "Angol (B2)"]', '[""]'],
         }
     )
-    mock_preprocess_tech_stack.return_value = pd.Series([["Python", "SQL"], ["Java"]])
+    mock_preprocess_tech_stack.return_value = pd.Series(
+        [["Python", "SQL"], ["Java", "Angol (B2)"], []]
+    )
 
     tech_stack, tech_stack_counts = analyze_tech_stack(mocked_data)
 
-    expected_tech_stack = ["PYTHON", "SQL"]
+    expected_tech_stack = ["PYTHON", "SQL", "JAVA", "ANGOL"]
     expected_tech_stack_counts = pd.Series([1, 1], name="tech")
 
     assert tech_stack == expected_tech_stack
