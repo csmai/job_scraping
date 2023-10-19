@@ -31,10 +31,14 @@ def test_fetch_data_from_db():
 
 def test_preprocess_tech_stack():
     input_series = pd.Series(
-        ['["Python", "Java"]', '["C++", "JavaScript"]', '["Ruby", "Rust"]']
+        [
+            '["Python", "SQL"]',
+            '["Java", "Python", "Angol (B2)"]',
+            "[]",
+        ]
     )
     expected_series = pd.Series(
-        [["Python", "Java"], ["C++", "JavaScript"], ["Ruby", "Rust"]]
+        [["Python", "SQL"], ["Java", "Python", "Angol (B2)"], []]
     )
 
     result = preprocess_tech_stack(input_series)
