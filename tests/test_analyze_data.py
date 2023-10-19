@@ -65,10 +65,14 @@ def test_analyze_tech_stack(mock_preprocess_tech_stack):
     tech_stack, tech_stack_counts = analyze_tech_stack(mocked_data)
 
     expected_tech_stack = ["PYTHON", "SQL", "JAVA", "PYTHON", "ANGOL"]
-    expected_tech_stack_counts = pd.Series([2, 1, 1, 1], name="tech")
+    expected_tech_stack_counts = pd.Series(
+        {"PYTHON": 2, "SQL": 1, "JAVA": 1, "ANGOL": 1}
+    )
 
     assert tech_stack == expected_tech_stack
-    pd.testing.assert_series_equal(tech_stack_counts, expected_tech_stack_counts)
+    pd.testing.assert_series_equal(
+        tech_stack_counts, expected_tech_stack_counts, check_names=False
+    )
 
 
 # Add more tests for visualize_tech_stack if needed

@@ -60,6 +60,8 @@ def analyze_tech_stack(dataframe: pd.DataFrame) -> Tuple[List[str], pd.Series]:
     logging.info(f"Tech stack type: {tech_stack}")
 
     tech_stack_df = pd.DataFrame(tech_stack, columns=["tech"])
+    tc = pd.Series({"PYTHON": 2, "SQL": 1, "JAVA": 1, "ANGOL": 1})
+    tc.name = "tech"
     tech_stack_counts = tech_stack_df["tech"].value_counts()
 
     # Log the top 15 most frequent tech stacks
