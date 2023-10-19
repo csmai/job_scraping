@@ -99,10 +99,8 @@ def scrape_subpage(url: str) -> Tuple[str, str, List[str]]:
 def scrape_main_page(url: str) -> pd.DataFrame:
     """Function to scrape the main page"""
     page = requests.get(url, headers=headers)
-    logging.info("In the scraper function")
     if page.status_code == 200:
         soup = BeautifulSoup(page.text, "html.parser")
-        logging.info("Soup created")
         job_info = extract_job_info_from_result(soup)
         logging.info("Successful soup creation")
         return pd.DataFrame(job_info)

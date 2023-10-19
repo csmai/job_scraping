@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sqlalchemy import create_engine
+from typing import List
 import os
 import ast
 import logging
@@ -17,7 +18,7 @@ logger = logging.getLogger(__name__)
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
 
 
-def fetch_data_from_db(table_names):
+def fetch_data_from_db(table_names: List[str]) -> pd.DataFrame:
     """Function to fetch data from the database"""
     engine = create_engine(DB_URI)
     combined_data = pd.DataFrame()
@@ -28,7 +29,7 @@ def fetch_data_from_db(table_names):
     return combined_data
 
 
-def preprocess_tech_stack(str_series):
+def preprocess_tech_stack(str_series: pd.Series) -> pd.Series:
     """Convert the json strings to actual lists using ast.literal_eval"""
     logging.info(f"Type of first rows tech stack :{type(str_series.iloc[0])}")
     logging.info(f"first row of tech stack :{str_series.iloc[0]}")
@@ -41,7 +42,7 @@ def preprocess_tech_stack(str_series):
     return list_series
 
 
-def analyze_tech_stack(dataframe):
+def analyze_tech_stack(dataframe: pd.DataFrame) -> List[str]:
     # Filter jobs with the 2 search keywords in the job title
     filtered_jobs = dataframe[
         dataframe["job_title"].str.contains(search_kws[0], case=False)
@@ -66,7 +67,8 @@ def analyze_tech_stack(dataframe):
     return tech_stack, tech_stack_counts
 
 
-def visualize_tech_stack(tech_stack, tech_stack_counts):
+def visualize_tech_stack(tech_stack: List[str], tech_stack_counts: pd.Series) -> None:
+    """Create a bar graph showing the most frequent requirements"""
     # Calculate percentages
     total_techs = len(tech_stack)
     tech_stack_percentages = (tech_stack_counts / total_techs) * 100

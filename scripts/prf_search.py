@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+from typing import List, Dict
 import pandas as pd
 import logging
+
 
 # Use the configured logger from main.py
 logger = logging.getLogger(__name__)
@@ -9,9 +11,9 @@ logger = logging.getLogger(__name__)
 from common_utils import headers
 
 
-# Function to extract job titles and job links from the soup
-def extract_job_info_from_result(soup):
-    job_info = []
+def extract_job_info_from_result(soup: BeautifulSoup) -> List[Dict]:
+    """Function to extract job titles and job links from the soup"""
+    job_info: List[Dict] = []
     logging.info("Start list creation: search soup")
     job_card_items = soup.select("ul.job-cards > li")
     logging.info("job_card_items found")
@@ -45,7 +47,8 @@ def extract_job_info_from_result(soup):
 
 
 # Function to extract job tech stack from the soup
-def extract_job_tech_stack_from_result(soup):
+def extract_job_tech_stack_from_result(soup: BeautifulSoup) -> List[str]:
+    """Function to extract job tech stack from the soup"""
     tech_stack_list = []
     tech_img = soup.find("img", alt="technologies")
     if tech_img:
@@ -69,7 +72,8 @@ def extract_job_tech_stack_from_result(soup):
 
 
 # Function to scrape the subpage to get the tech stack
-def scrape_subpage(url):
+def scrape_subpage(url: str) -> List[str]:
+    """Function to scrape the subpage to get the tech stack"""
     page = requests.get(url, headers=headers)
     if page.status_code == 200:
         soup = BeautifulSoup(page.text, "html.parser")
@@ -77,11 +81,11 @@ def scrape_subpage(url):
         return tech_stack_list
     else:
         logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
-        return None
+        return []
 
 
-# Function to scrape the main page
-def scrape_main_page(url):
+def scrape_main_page(url: str) -> pd.DataFrame:
+    """Function to scrape the main page"""
     page = requests.get(url, headers=headers)
     if page.status_code == 200:
         soup = BeautifulSoup(page.text, "html.parser")
@@ -90,4 +94,4 @@ def scrape_main_page(url):
         return pd.DataFrame(job_info)
     else:
         logging.warning(f"Failed to retrieve the page. Status code:{page.status_code}")
-        return None
+        return pd.DataFrame()
