@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
-from unittest.mock import MagicMock, patch
-from sqlalchemy.engine import Connection
+from config import search_kws
+from unittest.mock import patch
 from scripts.analyze_data import (
     fetch_data_from_db,
     preprocess_tech_stack,
@@ -24,8 +24,12 @@ job_title_list = [
 
 @patch("sqlalchemy.create_engine")
 def test_fetch_data_from_db(mock_create_engine):
+    # get table name constants
+    table_names = [
+        f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
+        f"{search_kws[0].lower()}_{search_kws[1].lower()}_nof",
+    ]
     # Call the function with the table_names in config
-    table_names = ["python_developer_nof", "python_developer_prf"]
     combined_result = fetch_data_from_db(table_names)
 
     # Ensure that there is a minimum of one row of data in the combined table
@@ -41,7 +45,7 @@ def test_fetch_data_from_db(mock_create_engine):
         "job_tech_stack": str,
     }
 
-    # Ensure that there is a minimum of one row of data in each table
+    # Check each column type and name in the dataframe
     for column_name, expected_class in expected_column_types.items():
         actual_class = type(combined_result[column_name].iloc[0])
         assert actual_class == expected_class
