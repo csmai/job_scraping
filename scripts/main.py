@@ -1,6 +1,7 @@
 from prf_search import scrape_main_page as prf_scrape_main_page
 from nof_search import scrape_main_page as nof_scrape_main_page
 from config import search_kws
+from analyze_data import analyze_data_from_db
 import pandas as pd
 import time
 import random
@@ -8,7 +9,6 @@ import logging
 from sqlalchemy import create_engine
 import os
 import json
-import subprocess
 from typing import Optional
 
 
@@ -132,4 +132,4 @@ if __name__ == "__main__":
     get_and_store_job_data("nof")
 
     # Analyze and Visualize the Data
-    subprocess.run(["python", os.path.join("scripts", "analyze_data.py")])
+    analyze_data_from_db()

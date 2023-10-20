@@ -18,6 +18,20 @@ logger = logging.getLogger(__name__)
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
 
 
+def analyze_data_from_db():
+    # get table name constants
+    table_names = [
+        f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
+        f"{search_kws[0].lower()}_{search_kws[1].lower()}_nof",
+    ]
+    # Fetch data from the database
+    combined_data = fetch_data_from_db(table_names)
+
+    # Analyze the tech stack based on the fetched data
+    tech_stack, tech_stack_counts = analyze_tech_stack(combined_data)
+    visualize_tech_stack(tech_stack, tech_stack_counts)
+
+
 def fetch_data_from_db(table_names: List[str]) -> pd.DataFrame:
     """Function to fetch data from the database"""
     engine = create_engine(DB_URI)
@@ -115,14 +129,4 @@ def visualize_tech_stack(tech_stack: List[str], tech_stack_counts: pd.Series) ->
 
 
 if __name__ == "__main__":
-    # get table name constants
-    table_names = [
-        f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
-        f"{search_kws[0].lower()}_{search_kws[1].lower()}_nof",
-    ]
-    # Fetch data from the database
-    combined_data = fetch_data_from_db(table_names)
-
-    # Analyze the tech stack based on the fetched data
-    tech_stack, tech_stack_counts = analyze_tech_stack(combined_data)
-    visualize_tech_stack(tech_stack, tech_stack_counts)
+    analyze_data_from_db()
