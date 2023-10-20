@@ -24,34 +24,9 @@ job_title_list = [
 
 @patch("sqlalchemy.create_engine")
 def test_fetch_data_from_db(mock_create_engine):
-    # Mock data for the tables
-    mocked_row = (
-        "Python Developer",
-        "XY Company",
-        "XY Job summary",
-        "https://xyjob_portal.com/actual_job",
-        '["Python", "SQL"]',
-    )
-    mock_data = {
-        "python_developer_nof": [mocked_row],
-        "python_developer_prf": [mocked_row],
-    }
-
-    # Mock the execute method to return the data
-    def execute_side_effect(table_name):
-        data = mock_data.get(table_name, [])
-        return data
-
-    mock_connection = MagicMock(Connection)
-    mock_connection.execute.side_effect = execute_side_effect
-
-    mock_create_engine.return_value.__enter__.return_value = mock_connection
-
-    # Call the function with the mock
+    # Call the function with the table_names in config
     table_names = ["python_developer_nof", "python_developer_prf"]
     combined_result = fetch_data_from_db(table_names)
-    type_cr = type(combined_result)
-    l_cr = len(combined_result)
 
     # Ensure that there is a minimum of one row of data in the combined table
     table_data = combined_result["job_title"].notnull()
