@@ -18,7 +18,7 @@ class Scraper(ABC):
         self.url = url
 
     @abstractmethod
-    def find_job_items(soup: BeautifulSoup) -> Iterable:
+    def find_job_items(self, soup: BeautifulSoup) -> Iterable:
         """Abstract method to find the job items"""
         pass
 
@@ -33,21 +33,23 @@ class Scraper(ABC):
         pass
 
     def extract_job_summary_from_subpage(self, soup: BeautifulSoup) -> str:
+        """Method to extract job summary from the subpage"""
         # By default no job summary from the subpage
         return ""
 
     def extract_company_name_from_subpage(self, soup: BeautifulSoup) -> str:
+        """Method to extract company name from the subpage"""
         # By default no company from the subpage
         return ""
 
     def extract_job_info_from_result(self, soup: BeautifulSoup) -> List[dict]:
         """Method to extract job information from the soup"""
         job_info: List[Dict] = []
-        logging.info("Start list creation: search soup")
+        self.logger.info("Start list creation: search soup")
         job_items = self.find_job_items(soup)
 
         for item in job_items:
-            logging.debug("Processing item: %s", item)
+            self.logger.debug("Processing item: %s", item)
             job_title, company_name, job_summary, job_link, job_tech_stack = [None] * 5
             (
                 job_title,
@@ -66,11 +68,11 @@ class Scraper(ABC):
                     "job_tech_stack": job_tech_stack,
                 }
             )
-        logging.info("job_info collected")
+        self.logger.info("job_info collected")
         return job_info
 
     def scrape_subpage(self, url: str) -> Tuple[str, str, List[str]]:
-        """Function to scrape the subpage to get the company name, summary and tech stack"""
+        """Method to scrape the subpage to get the company name, summary, and tech stack"""
         page = requests.get(url, headers=headers)
         if page.status_code == 200:
             soup = BeautifulSoup(page.text, "html.parser")
@@ -79,8 +81,8 @@ class Scraper(ABC):
             job_summary = self.extract_job_summary_from_subpage(soup)
             return company_name, job_summary, tech_stack_list
         else:
-            logging.warning(
-                f"Failed to retrieve the page. Status code:{page.status_code}"
+            self.logger.warning(
+                f"Failed to retrieve the page. Status code: {page.status_code}"
             )
             return "", "", []
 
@@ -90,11 +92,11 @@ class Scraper(ABC):
         if page.status_code == 200:
             soup = BeautifulSoup(page.text, "html.parser")
             job_info = self.extract_job_info_from_result(soup)
-            logging.info("Successful soup creation")
+            self.logger.info("Successful soup creation")
             return pd.DataFrame(job_info)
         else:
-            logging.warning(
-                f"Failed to retrieve the page. Status code:{page.status_code}"
+            self.logger.warning(
+                f"Failed to retrieve the page. Status code: {page.status_code}"
             )
             return pd.DataFrame()
 
@@ -128,7 +130,7 @@ class PrfScraper(Scraper):
         tech_stack_list: List[str] = []
         tech_img = soup.find("img", alt="technologies")
         if tech_img:
-            logging.info("img found")
+            self.logger.info("img found")
             # Get the parent span
             parent_span = tech_img.parent
 
@@ -141,9 +143,9 @@ class PrfScraper(Scraper):
                 tech_stack_list = [str(span.get_text().strip()) for span in spans]
 
             else:
-                logging.info("No next sibling div found.")
+                self.logger.info("No next sibling div found.")
         else:
-            logging.info('Image with alt="technologies" not found.')
+            self.logger.info('Image with alt="technologies" not found.')
         return tech_stack_list
 
 
@@ -152,7 +154,7 @@ class NofScraper(Scraper):
         super().__init__(url)
 
     def find_job_items(self, soup: BeautifulSoup) -> Iterable:
-        """Abstract method to find the job items"""
+        """Method to find the job items"""
         return soup.find_all("a", class_="posting-list-item")
 
     def get_job_info_data(self, item_iter: Iterator) -> Tuple[str, str, str, str, str]:
@@ -178,7 +180,7 @@ class NofScraper(Scraper):
         if li_elements:
             tech_stack_list = [str(li.get_text().strip()) for li in li_elements]
         else:
-            logging.info("li_elements not found in musts section")
+            self.logger.info("li_elements not found in musts section")
         return tech_stack_list
 
     def extract_job_summary_from_subpage(self, soup: BeautifulSoup) -> str:
@@ -189,19 +191,21 @@ class NofScraper(Scraper):
         h2_elements = soup.find_all("h2")
         for h2 in h2_elements:
             if "projekt r" in h2.get_text().strip():
-                logging.info("'projekt r' text found from 'projekt rövid leírása'")
+                self.logger.info("'projekt r' text found from 'projekt rövid leírása'")
                 # Get the next sibling element (which contains the desired text)
                 next_element = h2.find_next_sibling("nfj-read-more")
                 if next_element and next_element.div:
                     job_summary = next_element.div.get_text(strip=True)
-                    logging.info("Next element and its div is found")
+                    self.logger.info("Next element and its div is found")
                     break
                 else:
-                    logging.info(
+                    self.logger.info(
                         "Next element or its div of 'projekt r's h2 is not found."
                     )
             else:
-                logging.info("'projekt r' text from 'projekt rövid leírása' not found")
+                self.logger.info(
+                    "'projekt r' text from 'projekt rövid leírása' not found"
+                )
         return job_summary
 
     def extract_company_name_from_subpage(self, soup: BeautifulSoup) -> str:
