@@ -50,7 +50,9 @@ def test_fetch_data_from_db(mock_create_engine):
     # Check each column type and name in the dataframe
     for column_name, expected_class in expected_column_types.items():
         actual_class = type(combined_result[column_name].iloc[0])
+        actual_name = combined_result[column_name].name
         assert actual_class == expected_class
+        assert actual_name == column_name
 
 
 def test_filter_jobs_by_title():
@@ -120,8 +122,6 @@ def test_analyze_tech_stack(mock_preprocess_tech_stack):
         tech_stack_counts, expected_tech_stack_counts, check_names=False
     )
 
-
-# Add more tests for visualize_tech_stack if needed
 
 if __name__ == "__main__":
     pytest.main()
