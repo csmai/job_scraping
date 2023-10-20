@@ -1,20 +1,22 @@
-from scrapers import NofScraper, PrfScraper, Scraper
-from config import search_kws
-from analyze_data import analyze_data_from_db
 import pandas as pd
 import time
 import random
 import logging
-from sqlalchemy import create_engine
 import os
 import json
 from typing import Optional, Type
+from sqlalchemy import create_engine
+
+from scrapers import NofScraper, PrfScraper, Scraper
+from config import search_kws
+from analyze_data import analyze_data_from_db
 
 
 # Set up logging
 logging.basicConfig(
     level=logging.INFO, filename="output.log", filemode="w", encoding="utf-8"
 )
+
 # Define constants
 DB_URI = f"postgresql://postgres:{os.getenv('P4PASSWD')}@localhost:5432/prof_scrape"
 PRF_URL = os.getenv("PRF_URL")
@@ -60,9 +62,11 @@ def perform_scraping(prefix: str) -> pd.DataFrame:
     # Initialize an empty DataFrame to store all job info
     all_job_info_df = pd.DataFrame()
     logging.info(f"Begin the {prefix} scraper script")
+
     for page_num in range(1, 2 + (prefix == "prf") * 3):
         search_url = construct_url(prefix, page_num)
         scraper = get_scraper(prefix, search_url)
+
         try:
             # Get the info of the job for this page using the stated URL above
             job_info_df = scraper.scrape_main_page()
@@ -91,14 +95,8 @@ def load_data_to_db(prefix: str, df_to_load: pd.DataFrame) -> None:
     table_name = f"{search_kws[0].lower()}_{search_kws[1].lower()}_{prefix}"
     logging.info(f"Begin the database load for {prefix} prefix, to table {table_name}")
     engine = create_engine(DB_URI)
-    df_to_load.to_sql(
-        table_name,
-        engine,
-        if_exists="replace",
-        index=False,
-    )
+    df_to_load.to_sql(table_name, engine, if_exists="replace", index=False)
     logging.info(f"Data loaded into '{table_name}' table.")
-    return
 
 
 def load_data_to_csv(prefix: str, df_to_load: pd.DataFrame) -> None:
@@ -109,7 +107,6 @@ def load_data_to_csv(prefix: str, df_to_load: pd.DataFrame) -> None:
     )
     df_to_load.to_csv(csv_filename, index=False)
     logging.info(f"Data loaded into {csv_filename}.")
-    return
 
 
 def get_and_store_job_data(prefix: str) -> None:

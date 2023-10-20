@@ -35,46 +35,19 @@ INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
-INFO:scrapers:img found
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
-INFO:scrapers:img found
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:job_info collected
-INFO:scrapers:Successful soup creation
-INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
-INFO:scrapers:Start list creation: search soup
-INFO:scrapers:img found
-INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
 INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:Image with alt="technologies" not found.
-INFO:scrapers:img found
-INFO:scrapers:img found
 INFO:scrapers:img found
 INFO:scrapers:img found
 INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:job_info collected
 INFO:scrapers:Successful soup creation
@@ -83,6 +56,33 @@ INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIREC
 INFO:scrapers:Start list creation: search soup
 INFO:scrapers:img found
 INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:img found
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:img found
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:img found
+INFO:scrapers:img found
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:img found
+INFO:scrapers:img found
+INFO:scrapers:img found
+INFO:scrapers:img found
+INFO:scrapers:img found
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:job_info collected
+INFO:scrapers:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
+INFO:scrapers:Start list creation: search soup
+INFO:scrapers:Image with alt="technologies" not found.
+INFO:scrapers:img found
 INFO:scrapers:img found
 INFO:scrapers:img found
 INFO:scrapers:img found
@@ -106,7 +106,7 @@ INFO:scrapers:Image with alt="technologies" not found.
 INFO:scrapers:job_info collected
 INFO:scrapers:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
+INFO:root:First Row: []
 INFO:root:Scraping for prf done. Number of data rows: 88
 INFO:root:Begin the database load for prf prefix, to table data_engineer_prf
 INFO:root:Data loaded into 'data_engineer_prf' table.
