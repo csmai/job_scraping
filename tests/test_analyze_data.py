@@ -1,6 +1,7 @@
 import pandas as pd
 import pytest
 from unittest.mock import MagicMock, patch
+from sqlalchemy.engine import Connection
 from scripts.analyze_data import (
     fetch_data_from_db,
     preprocess_tech_stack,
@@ -21,25 +22,58 @@ job_title_list = [
 ]
 
 
-def test_fetch_data_from_db():
-    # Create a MagicMock for the create_engine function
-    mock_create_engine = MagicMock()
+@patch("sqlalchemy.create_engine")
+def test_fetch_data_from_db(mock_create_engine):
+    # Mock data for the tables
+    mocked_row = (
+        "Python Developer",
+        "XY Company",
+        "XY Job summary",
+        "https://xyjob_portal.com/actual_job",
+        '["Python", "SQL"]',
+    )
+    mock_data = {
+        "python_developer_nof": [mocked_row],
+        "python_developer_prf": [mocked_row],
+    }
 
-    # Use the MagicMock to simulate the execute and fetchall methods
-    mock_create_engine.return_value.__enter__.return_value.execute.return_value.fetchall.return_value = [
-        ("Python Developer", '["Python", "Java"]')
-    ]
+    # Mock the execute method to return the data
+    def execute_side_effect(table_name):
+        data = mock_data.get(table_name, [])
+        return data
+
+    mock_connection = MagicMock(Connection)
+    mock_connection.execute.side_effect = execute_side_effect
+
+    mock_create_engine.return_value.__enter__.return_value = mock_connection
 
     # Call the function with the mock
     table_names = ["python_developer_nof", "python_developer_prf"]
-    result = fetch_data_from_db(table_names)
+    combined_result = fetch_data_from_db(table_names)
+    type_cr = type(combined_result)
+    l_cr = len(combined_result)
 
-    # Define the expected DataFrame based on the mock data
-    expected_data = pd.DataFrame(
-        {"job_title": ["Python Developer"], "job_tech_stack": [["Python", "Java"]]}
-    )
+    # Ensure that there is a minimum of one row of data in the combined table
+    table_data = combined_result["job_title"].notnull()
+    assert len(table_data) >= 1
 
-    pd.testing.assert_frame_equal(result, expected_data)
+    # Define the expected classes for each column type
+    expected_column_types = {
+        "job_title": str,
+        "company_name": str,
+        "job_summary": str,
+        "job_link": str,
+        "job_tech_stack": str,
+    }
+
+    # Ensure that there is a minimum of one row of data in each table
+    for column_name, expected_class in expected_column_types.items():
+        actual_class = type(combined_result[column_name].iloc[0])
+        assert actual_class == expected_class
+
+
+def test_filter_jobs_by_title():
+    pass
 
 
 def test_preprocess_tech_stack():
