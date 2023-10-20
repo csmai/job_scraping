@@ -1,5 +1,4 @@
-from prf_search import scrape_main_page as prf_scrape_main_page
-from nof_search import scrape_main_page as nof_scrape_main_page
+from scrapers import NofScraper, PrfScraper, Scraper
 from config import search_kws
 from analyze_data import analyze_data_from_db
 import pandas as pd
@@ -9,7 +8,7 @@ import logging
 from sqlalchemy import create_engine
 import os
 import json
-from typing import Optional
+from typing import Optional, Type
 
 
 # Set up logging
@@ -35,14 +34,14 @@ def construct_url(prefix: str, page_num: int) -> Optional[str]:
     return url
 
 
-def define_scraper_func(prefix: str) -> Optional[callable]:
-    """Define the scraper function based on the prefix"""
-    func: Optional[callable] = None
+def get_scraper(prefix: str, url: str) -> Type[Scraper]:
+    """Define the scraper class based on the prefix and return the scraper"""
+    scraper: Type[Scraper] = None
     if prefix == "prf":
-        func = prf_scrape_main_page
+        scraper = PrfScraper(url)
     elif prefix == "nof":
-        func = nof_scrape_main_page
-    return func
+        scraper = NofScraper(url)
+    return scraper
 
 
 def convert_series_to_json(series: Optional[pd.Series]) -> Optional[pd.Series]:
@@ -63,10 +62,10 @@ def perform_scraping(prefix: str) -> pd.DataFrame:
     logging.info(f"Begin the {prefix} scraper script")
     for page_num in range(1, 2 + (prefix == "prf") * 3):
         search_url = construct_url(prefix, page_num)
-        scrape_function = define_scraper_func(prefix)
+        scraper = get_scraper(prefix, search_url)
         try:
             # Get the info of the job for this page using the stated URL above
-            job_info_df = scrape_function(search_url)
+            job_info_df = scraper.scrape_main_page()
             job_info_df["job_tech_stack"] = convert_series_to_json(
                 job_info_df["job_tech_stack"]
             )
