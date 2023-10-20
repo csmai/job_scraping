@@ -6,6 +6,7 @@ from scripts.analyze_data import (
     fetch_data_from_db,
     preprocess_tech_stack,
     analyze_tech_stack,
+    filter_jobs_by_title,
 )
 
 # Define common data for testing
@@ -24,6 +25,7 @@ job_title_list = [
 
 @patch("sqlalchemy.create_engine")
 def test_fetch_data_from_db(mock_create_engine):
+    """Check The types and column names of the data from the database"""
     # get table name constants
     table_names = [
         f"{search_kws[0].lower()}_{search_kws[1].lower()}_prf",
@@ -52,7 +54,39 @@ def test_fetch_data_from_db(mock_create_engine):
 
 
 def test_filter_jobs_by_title():
-    pass
+    """Check if Invalid title and its tech stack  is filtered out"""
+    tech_stack_to_filter = job_tech_stack_str_list
+    senior_title = f"Senior {search_kws[1].title()} of {search_kws[0].lower()}"
+    simple_title = f"{search_kws[0]} {search_kws[1]}"
+    title_to_filter = [
+        senior_title,
+        "INVALID",
+        simple_title,
+    ]
+
+    df_to_filter = pd.DataFrame(
+        {
+            "job_title": title_to_filter,
+            "job_tech_stack": tech_stack_to_filter,
+        }
+    )
+    expected_df = pd.DataFrame(
+        {
+            "job_title": [
+                senior_title,
+                simple_title,
+            ],
+            "job_tech_stack": [
+                '["Python", "SQL"]',
+                "[]",
+            ],
+        }
+    )
+    result_df = filter_jobs_by_title(df_to_filter)
+    # Check if the result dataframe equals to the expected ignoring the index
+    pd.testing.assert_frame_equal(
+        result_df.reset_index(drop=True), expected_df.reset_index(drop=True)
+    )
 
 
 def test_preprocess_tech_stack():
