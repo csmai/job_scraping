@@ -23,7 +23,7 @@ class Scraper(ABC):
         pass
 
     @abstractmethod
-    def get_job_info_data(self, item: Iterator) -> Tuple[str, str, str, str, str]:
+    def get_job_info_data(self, item_iter: Iterator) -> Tuple[str, str, str, str, str]:
         """Abstract method to gather the data from a job item"""
         pass
 
@@ -100,27 +100,27 @@ class Scraper(ABC):
 
 
 class PrfScraper(Scraper):
-    def __init__(self, url):
+    def __init__(self, url: str):
         super().__init__(url)
 
     def find_job_items(self, soup: BeautifulSoup) -> Iterable:
         """Method to find the job items"""
         return soup.select("ul.job-cards > li")
 
-    def get_job_info_data(self, item: Iterator) -> Tuple[str, str, str, str, str]:
+    def get_job_info_data(self, item_iter: Iterator) -> Tuple[str, str, str, str, str]:
         """Method to gather the data for a job item"""
 
-        if item.has_attr("data-prof-name"):
-            job_title = str(item["data-prof-name"])
-        if item.has_attr("data-item-brand"):
-            company_name = str(item["data-item-brand"])
-        if item.has_attr("data-item-brand"):
-            job_summary = str(item["data-item-brand"])
-        if item.has_attr("data-link"):
-            job_link = str(item["data-link"])
+        if item_iter.has_attr("data-prof-name"):
+            job_title = str(item_iter["data-prof-name"])
+        if item_iter.has_attr("data-item-brand"):
+            company_name = str(item_iter["data-item-brand"])
+        if item_iter.has_attr("data-item-brand"):
+            job_summary = str(item_iter["data-item-brand"])
+        if item_iter.has_attr("data-link"):
+            job_link = str(item_iter["data-link"])
             job_tech_stack = self.scrape_subpage(job_link)[2]
 
-        job_summary = item.find("div", class_="job-card__text").text.strip()
+        job_summary = item_iter.find("div", class_="job-card__text").text.strip()
         return job_title, company_name, job_summary, job_link, job_tech_stack
 
     def extract_job_tech_stack_from_result(self, soup: BeautifulSoup) -> List[str]:
@@ -148,20 +148,20 @@ class PrfScraper(Scraper):
 
 
 class NofScraper(Scraper):
-    def __init__(self, url):
+    def __init__(self, url: str):
         super().__init__(url)
 
     def find_job_items(self, soup: BeautifulSoup) -> Iterable:
         """Abstract method to find the job items"""
         return soup.find_all("a", class_="posting-list-item")
 
-    def get_job_info_data(self, item: Iterator) -> Tuple[str, str, str, str, str]:
+    def get_job_info_data(self, item_iter: Iterator) -> Tuple[str, str, str, str, str]:
         """Method to gather the data for a job item"""
-        job_title = item.find("h3", class_="posting-title__position").text.strip()
+        job_title = item_iter.find("h3", class_="posting-title__position").text.strip()
         # Define base url based on envrinment variable: slice the first 23 characters
         nof_url_base = os.getenv("NOF_URL")[:23]
-        if item.has_attr("href"):
-            job_link = f'{nof_url_base}{item["href"]}'
+        if item_iter.has_attr("href"):
+            job_link = f'{nof_url_base}{item_iter["href"]}'
             company_name, job_summary, job_tech_stack = self.scrape_subpage(job_link)
         return job_title, company_name, job_summary, job_link, job_tech_stack
 
