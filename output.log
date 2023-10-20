@@ -1,34 +1,59 @@
 INFO:root:Begin the prf scraper script
 INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:job_info collected
+INFO:root:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
+INFO:root:Start list creation: search soup
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
 INFO:root:First Row: []
 INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
@@ -38,36 +63,24 @@ INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
 INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
 INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
 INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
@@ -76,57 +89,36 @@ INFO:root:img found
 INFO:root:img found
 INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
+INFO:root:Image with alt="technologies" not found.
 INFO:root:img found
 INFO:root:img found
 INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:img found
+INFO:root:Image with alt="technologies" not found.
 INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
 INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
-INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:img found
-INFO:root:Image with alt="technologies" not found.
-INFO:root:img found
-INFO:root:job_info collected
-INFO:root:Successful soup creation
-INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["OPER\u00c1CI\u00d3S RENDSZEREK", "WINDOWS", "ACTIVE DIRECTORY"]
-INFO:root:Scraping for prf done. Number of data rows: 87
+INFO:root:Scraping for prf done. Number of data rows: 88
 INFO:root:Begin the database load for prf prefix, to table data_engineer_prf
 INFO:root:Data loaded into 'data_engineer_prf' table.
 INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\prf_data_engineer_job_data.csv.
 INFO:root:Begin the nof scraper script
 INFO:root:Start list creation: search soup
-INFO:root:job_card_items found
 INFO:root:'projekt r' text from 'projekt rövid leírása' not found
 INFO:root:'projekt r' text from 'projekt rövid leírása' not found
 INFO:root:'projekt r' text from 'projekt rövid leírása' not found
 INFO:root:'projekt r' text found from 'projekt rövid leírása'
 INFO:root:Next element and its div is found
 INFO:root:'projekt r' text from 'projekt rövid leírása' not found
-INFO:root:'projekt r' text from 'projekt rövid leírása' not found
-INFO:root:'projekt r' text from 'projekt rövid leírása' not found
-INFO:root:'projekt r' text found from 'projekt rövid leírása'
-INFO:root:Next element and its div is found
 INFO:root:'projekt r' text from 'projekt rövid leírása' not found
 INFO:root:'projekt r' text from 'projekt rövid leírása' not found
 INFO:root:'projekt r' text found from 'projekt rövid leírása'
@@ -139,27 +131,27 @@ INFO:root:job_info collected
 INFO:root:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
 INFO:root:First Row: ["Python", "Scala", "SQL", "Data engineering", "ETL", "ELT", "Database", "Orchestration", "Cloud", "Big data", "Spark", "PySpark", "Data flows", "Angol (B2)"]
-INFO:root:Scraping for nof done. Number of data rows: 4
+INFO:root:Scraping for nof done. Number of data rows: 3
 INFO:root:Begin the database load for nof prefix, to table data_engineer_nof
 INFO:root:Data loaded into 'data_engineer_nof' table.
 INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\nof_data_engineer_job_data.csv.
 INFO:root:Tech stack type: <class 'list'>
-INFO:root:Tech stack type: ['SQL', 'DEVOPS', 'LINUX', 'SQL', 'BI', 'MSSQL', 'PYTHON', 'ADATTÁRHÁZ', 'AZURE', 'SQL', 'POWERBI', 'BI', 'TABLEAU', 'SQL', 'PYTHON', 'API', 'DATA LAKE', 'AZURE', 'SQL', 'ANALYTICS', 'POWERBI', 'PYTHON', 'MACHINE LEARNING', 'PYTHON', 'SCALA', 'SQL', 'DATA ENGINEERING', 'ETL', 'ELT', 'DATABASE', 'ORCHESTRATION', 'CLOUD', 'BIG DATA', 'SPARK', 'PYSPARK', 'DATA FLOWS', 'ANGOL', 'PYTHON', 'AWS', 'SQL', 'ANGOL', 'HADOOP', 'BIG DATA', 'CLOUDERA', 'LINUX', 'UNIX', 'MAPR', 'ANGOL']
+INFO:root:Tech stack type: ['SQL', 'DEVOPS', 'LINUX', 'PYTHON', 'CLOUD', 'LINUX', 'SQL', 'BI', 'DATABASE', 'SQL', 'BI', 'MSSQL', 'PYTHON', 'ADATTÁRHÁZ', 'AZURE', 'SQL', 'POWERBI', 'BI', 'TABLEAU', 'SQL', 'PYTHON', 'API', 'DATA LAKE', 'AZURE', 'SQL', 'ANALYTICS', 'POWERBI', 'PYTHON', 'MACHINE LEARNING', 'PYTHON', 'SCALA', 'SQL', 'DATA ENGINEERING', 'ETL', 'ELT', 'DATABASE', 'ORCHESTRATION', 'CLOUD', 'BIG DATA', 'SPARK', 'PYSPARK', 'DATA FLOWS', 'ANGOL', 'PYTHON', 'AWS', 'SQL', 'ANGOL', 'HADOOP', 'BIG DATA', 'CLOUDERA', 'LINUX', 'UNIX', 'MAPR', 'ANGOL']
 INFO:root:('Data', 'engineer')Top 15 most frequent tech stacks:
 INFO:root:tech
-SQL           7
-PYTHON        5
-ANGOL         3
-LINUX         2
-BI            2
-BIG DATA      2
-AZURE         2
-POWERBI       2
-DATA FLOWS    1
-CLOUD         1
-SPARK         1
-PYSPARK       1
-HADOOP        1
-AWS           1
-DATABASE      1
+SQL         8
+PYTHON      6
+LINUX       3
+BI          3
+ANGOL       3
+POWERBI     2
+BIG DATA    2
+AZURE       2
+DATABASE    2
+CLOUD       2
+CLOUDERA    1
+ELT         1
+UNIX        1
+HADOOP      1
+AWS         1
 Name: count, dtype: int64

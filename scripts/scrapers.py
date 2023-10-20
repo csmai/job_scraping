@@ -23,7 +23,7 @@ class Scraper(ABC):
         pass
 
     @abstractmethod
-    def get_job_info_data(self, item: Iterator) -> str * 5:
+    def get_job_info_data(self, item: Iterator) -> Tuple[str, str, str, str, str]:
         """Abstract method to gather the data from a job item"""
         pass
 
@@ -55,7 +55,7 @@ class Scraper(ABC):
                 job_summary,
                 job_link,
                 job_tech_stack,
-            ) = self.get_job_info_data()
+            ) = self.get_job_info_data(item)
 
             job_info.append(
                 {
@@ -107,7 +107,7 @@ class PrfScraper(Scraper):
         """Method to find the job items"""
         return soup.select("ul.job-cards > li")
 
-    def get_job_info_data(self, item: Iterator) -> str * 5:
+    def get_job_info_data(self, item: Iterator) -> Tuple[str, str, str, str, str]:
         """Method to gather the data for a job item"""
 
         if item.has_attr("data-prof-name"):
@@ -118,7 +118,7 @@ class PrfScraper(Scraper):
             job_summary = str(item["data-item-brand"])
         if item.has_attr("data-link"):
             job_link = str(item["data-link"])
-            job_tech_stack = self.scrape_subpage(job_link)
+            job_tech_stack = self.scrape_subpage(job_link)[2]
 
         job_summary = item.find("div", class_="job-card__text").text.strip()
         return job_title, company_name, job_summary, job_link, job_tech_stack
@@ -155,7 +155,7 @@ class NofScraper(Scraper):
         """Abstract method to find the job items"""
         return soup.find_all("a", class_="posting-list-item")
 
-    def get_job_info_data(self, item: Iterator) -> str * 5:
+    def get_job_info_data(self, item: Iterator) -> Tuple[str, str, str, str, str]:
         """Method to gather the data for a job item"""
         job_title = item.find("h3", class_="posting-title__position").text.strip()
         # Define base url based on envrinment variable: slice the first 23 characters
@@ -207,8 +207,3 @@ class NofScraper(Scraper):
     def extract_company_name_from_subpage(self, soup: BeautifulSoup) -> str:
         """Return company name based on id"""
         return soup.find("a", id="postingCompanyUrl").text.strip()
-
-
-# Usage
-prf_scraper = PrfScraper()
-nof_scraper = NofScraper()
