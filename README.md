@@ -18,6 +18,9 @@ This package is designed to assist users in collecting job data from professiona
 
 For example for the search keywords "Data, engineer" given in `config.py`, the following result is created by this package:
 ![Data engineer](image.png)
+
+For the search keywords "Python, developer" a different graph is generated:
+![Alt text](image-1.png)
 ## Prerequisites
 
 Before using this package, please ensure you have the following dependencies installed:
