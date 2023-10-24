@@ -7,7 +7,9 @@ import json
 from typing import Optional, Type
 from sqlalchemy import create_engine
 
-from scrapers import NofScraper, PrfScraper, Scraper
+from base_scraper import Scraper
+from pagescrapers.nof_scraper import NofScraper
+from pagescrapers.prf_scraper import PrfScraper
 from config import search_kws
 from analyze_data import analyze_data_from_db
 

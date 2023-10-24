@@ -17,10 +17,10 @@ This Python package provides a set of scripts for web scraping and analyzing job
 This package is designed to assist users in collecting job data from professional websites and gaining insights into the technology stack requirements for given job titles. It includes web scraping functionalities, data analysis, and data visualization.
 
 For example for the search keywords "Data, engineer" given in `config.py`, the following result is created by this package:
-![Data engineer](image.png)
+![Data engineer](dat_eng.png)
 
 For the search keywords "Python, developer" a different graph is generated:
-![Alt text](image-1.png)
+![Python developer](py_dev.png)
 ## Prerequisites
 
 Before using this package, please ensure you have the following dependencies installed:
