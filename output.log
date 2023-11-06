@@ -4,66 +4,13 @@ INFO:base_scraper:img found
 INFO:base_scraper:img found
 INFO:base_scraper:img found
 INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:job_info collected
-INFO:base_scraper:Successful soup creation
-INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["PYTHON", "TESTING", "UAT", "SQL", "UNIX", "GIT", "PANDAS", "JAVASCRIPT"]
-INFO:base_scraper:Start list creation: search soup
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:img found
 INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:img found
 INFO:base_scraper:img found
 INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:img found
 INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:job_info collected
-INFO:base_scraper:Successful soup creation
-INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["PYTHON", "CLOUD", "LINUX", "SQL", "BI", "DATABASE"]
-INFO:base_scraper:Start list creation: search soup
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:img found
 INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:Image with alt="technologies" not found.
@@ -71,83 +18,95 @@ INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:img found
 INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:job_info collected
-INFO:base_scraper:Successful soup creation
-INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["PYTHON", "TESTING", "UAT", "SQL", "UNIX", "GIT", "PANDAS", "JAVASCRIPT"]
-INFO:base_scraper:Start list creation: search soup
-INFO:base_scraper:img found
 INFO:base_scraper:img found
 INFO:base_scraper:img found
 INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:img found
-INFO:base_scraper:Image with alt="technologies" not found.
-INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:job_info collected
 INFO:base_scraper:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
 INFO:root:First Row: ["JAVA", "FRONTEND", "ANGULAR", "VUE.", "JAVASCRIPT", "HTML5", "CSS3"]
-INFO:root:Scraping for prf done. Number of data rows: 88
-INFO:root:Begin the database load for prf prefix, to table data_engineer_prf
-INFO:root:Data loaded into 'data_engineer_prf' table.
-INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\prf_data_engineer_job_data.csv.
-INFO:root:Begin the nof scraper script
 INFO:base_scraper:Start list creation: search soup
-INFO:base_scraper:'projekt r' text from 'projekt rövid leírása' not found
-INFO:base_scraper:'projekt r' text from 'projekt rövid leírása' not found
-INFO:base_scraper:'projekt r' text from 'projekt rövid leírása' not found
-INFO:base_scraper:'projekt r' text found from 'projekt rövid leírása'
-INFO:base_scraper:Next element and its div is found
-INFO:base_scraper:'projekt r' text from 'projekt rövid leírása' not found
-INFO:base_scraper:'projekt r' text from 'projekt rövid leírása' not found
-INFO:base_scraper:'projekt r' text from 'projekt rövid leírása' not found
-INFO:base_scraper:'projekt r' text found from 'projekt rövid leírása'
-INFO:base_scraper:Next element and its div is found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
 INFO:base_scraper:job_info collected
 INFO:base_scraper:Successful soup creation
 INFO:root:Type of first row: <class 'str'>
-INFO:root:First Row: ["Python", "Scala", "SQL", "Data engineering", "ETL", "ELT", "Database", "Orchestration", "Cloud", "Big data", "Spark", "PySpark", "Data flows", "Angol (B2)"]
-INFO:root:Scraping for nof done. Number of data rows: 2
-INFO:root:Begin the database load for nof prefix, to table data_engineer_nof
-INFO:root:Data loaded into 'data_engineer_nof' table.
-INFO:root:Data loaded into c:\Users\User\Desktop\OneDrive\pylearn\job_scraping\generated_csv_files\nof_data_engineer_job_data.csv.
-INFO:root:Tech stack type: <class 'list'>
-INFO:root:Tech stack type: ['PYTHON', 'CLOUD', 'LINUX', 'SQL', 'BI', 'DATABASE', 'SQL', 'DEVOPS', 'LINUX', 'SQL', 'SPARK', 'SECURITY', 'CLOUD', 'AWS', 'DEVOPS', 'DATABASES.', 'APACHE', 'JAVA', 'BASH', 'LINUX', 'PYTHON', 'CLOUD', 'LINUX', 'SQL', 'BI', 'DATABASE', 'ADATTÁRHÁZ', 'AZURE', 'SQL', 'POWERBI', 'BI', 'TABLEAU', 'ENGINEER', 'PYTHON', 'SQL', 'PIPELINES', 'WAREHOUSING', 'SERVICES', 'SQL', 'PYTHON', 'API', 'LAKE', 'DATABASE', 'DATABASES', 'SQL', 'AZURE', 'SECURITY', 'ANALYTICS', 'BI', 'APACHE', 'ACCESS', 'ERP', 'CLOUD', 'ITIL', 'MYSQL', 'NETWORK', 'DYNAMICS', 'MANAGEMENT', 'LEARNING', 'ERP', 'SQL', 'AZURE', 'DATABASE', 'SECURITY', 'ANALYTICS', 'APACHE', 'SPARK', 'ACCESS', 'ITIL', 'DYNAMICS', 'MYSQL', 'PYTHON', 'JAVA.', 'NETWORK', 'LEARNING', 'MANAGEMENT', 'MANAGEMENT', 'PYTHON', 'CLOUD', 'LINUX', 'SQL', 'BI', 'DATABASE', 'PYTHON', 'SCALA', 'SQL', 'DATA ENGINEERING', 'ETL', 'ELT', 'DATABASE', 'ORCHESTRATION', 'CLOUD', 'BIG DATA', 'SPARK', 'PYSPARK', 'DATA FLOWS', 'ANGOL', 'PYTHON', 'AWS', 'SQL', 'ANGOL']
-INFO:root:('Data', 'engineer')Top 15 most frequent tech stacks:
-INFO:root:tech
-SQL           12
-PYTHON         8
-CLOUD          6
-DATABASE       6
-LINUX          5
-BI             5
-AZURE          3
-APACHE         3
-MANAGEMENT     3
-SECURITY       3
-SPARK          3
-DYNAMICS       2
-NETWORK        2
-MYSQL          2
-ITIL           2
-Name: count, dtype: int64
+INFO:root:First Row: ["C", "SQL", "API", "ASP."]
+INFO:base_scraper:Start list creation: search soup
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:job_info collected
+INFO:base_scraper:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: ["C", "SQL", "API", "ASP."]
+INFO:base_scraper:Start list creation: search soup
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:img found
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:Image with alt="technologies" not found.
+INFO:base_scraper:job_info collected
+INFO:base_scraper:Successful soup creation
+INFO:root:Type of first row: <class 'str'>
+INFO:root:First Row: ["C", "SQL", "API", "ASP."]
+INFO:root:Scraping for prf done. Number of data rows: 88
+INFO:root:Begin the database load for prf prefix, to table data_engineer_prf
+INFO:root:Data loaded into 'data_engineer_prf' table.

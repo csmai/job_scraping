@@ -1,8 +1,9 @@
 */__pycache__/*
 __pycache__/
 generated_csv_files/
-html data samples/
+html_data_samples/
 reference_csv_data/
 logs/
 .vscode/
 output.log
+job_scraping.egg-info/
