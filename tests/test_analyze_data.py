@@ -9,22 +9,35 @@ from scripts.analyze_data import (
     filter_jobs_by_title,
 )
 
-# Define common data for testing
-job_tech_stack_str_list = [
-    '["Python", "SQL"]',
-    '["Java", "Python", "Angol (B2)"]',
-    "[]",
-]
-job_tech_stack_list_list = [["Python", "SQL"], ["Java", "Python", "Angol (B2)"], []]
-job_title_list = [
-    "Python Developer",
-    "Senior Python Developer",
-    "Python Developer",
-]
+
+# Define fixtures to provide the common data
+@pytest.fixture
+def job_tech_stack_str_data():
+    return [
+        '["Python", "SQL"]',
+        '["Java", "Python", "Angol (B2)"]',
+        "[]",
+    ]
+
+
+@pytest.fixture
+def job_tech_stack_list_data():
+    return [["Python", "SQL"], ["Java", "Python", "Angol (B2)"], []]
+
+
+@pytest.fixture
+def job_title_data():
+    return [
+        "Python Developer",
+        "Senior Python Developer",
+        "Python Developer",
+    ]
 
 
 @patch("sqlalchemy.create_engine")
-def test_fetch_data_from_db(mock_create_engine):
+def test_fetch_data_from_db(
+    mock_create_engine,
+):
     """Check The types and column names of the data from the database"""
     # get table name constants
     table_names = [
@@ -55,9 +68,9 @@ def test_fetch_data_from_db(mock_create_engine):
         assert actual_name == column_name
 
 
-def test_filter_jobs_by_title():
+def test_filter_jobs_by_title(job_tech_stack_str_data):
     """Check if Invalid title and its tech stack  is filtered out"""
-    tech_stack_to_filter = job_tech_stack_str_list
+    tech_stack_to_filter = job_tech_stack_str_data
     senior_title = f"Senior {search_kws[1].title()} of {search_kws[0].lower()}"
     simple_title = f"{search_kws[0]} {search_kws[1]}"
     title_to_filter = [
@@ -91,9 +104,9 @@ def test_filter_jobs_by_title():
     )
 
 
-def test_preprocess_tech_stack():
-    input_series = pd.Series(job_tech_stack_str_list)
-    expected_series = pd.Series(job_tech_stack_list_list)
+def test_preprocess_tech_stack(job_tech_stack_str_data, job_tech_stack_list_data):
+    input_series = pd.Series(job_tech_stack_str_data)
+    expected_series = pd.Series(job_tech_stack_list_data)
 
     result = preprocess_tech_stack(input_series)
 
@@ -101,14 +114,19 @@ def test_preprocess_tech_stack():
 
 
 @patch("scripts.analyze_data.preprocess_tech_stack")
-def test_analyze_tech_stack(mock_preprocess_tech_stack):
+def test_analyze_tech_stack(
+    mock_preprocess_tech_stack,
+    job_tech_stack_str_data,
+    job_tech_stack_list_data,
+    job_title_data,
+):
     mocked_data = pd.DataFrame(
         {
-            "job_title": job_title_list,
-            "job_tech_stack": job_tech_stack_str_list,
+            "job_title": job_title_data,
+            "job_tech_stack": job_tech_stack_str_data,
         }
     )
-    mock_preprocess_tech_stack.return_value = pd.Series(job_tech_stack_list_list)
+    mock_preprocess_tech_stack.return_value = pd.Series(job_tech_stack_list_data)
 
     tech_stack, tech_stack_counts = analyze_tech_stack(mocked_data)
 
