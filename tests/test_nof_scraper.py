@@ -15,8 +15,7 @@ from scripts.pagescrapers.nof_scraper import NofScraper
 
 @pytest.fixture
 def sample_html():
-    # Replace this with a sample HTML content that you want to use for testing
-    # For example, you can use a mock HTML file or create an HTML string for testing.
+    # Sample HTML for scraper fixture
     return "<html><body><a class='posting-list-item'></a></body></html>"
 
 
