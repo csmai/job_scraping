@@ -2,7 +2,6 @@ import pandas as pd
 import os
 import json
 from unittest.mock import patch
-from sqlalchemy import create_engine
 import pytest
 import urllib.parse
 import sys
@@ -21,7 +20,6 @@ from scripts.main import (
     get_scraper,
     convert_series_to_json,
     perform_scraping,
-    get_and_store_job_data,
 )
 
 
@@ -54,13 +52,6 @@ def test_perform_scraping():
         job_info_df = perform_scraping("prf")
         assert isinstance(job_info_df, pd.DataFrame)
         assert len(job_info_df) > 0
-
-
-# Slow test, disable to run fast
-def test_get_and_store_job_data():
-    get_and_store_job_data("prf")
-    get_and_store_job_data("nof")
-    # You can add more assertions to check if data is correctly stored in the database and CSV files
 
 
 if __name__ == "__main__":
