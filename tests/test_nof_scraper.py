@@ -1,7 +1,16 @@
 import os
+import sys
 import pytest
 from bs4 import BeautifulSoup
-from nof_scraper import NofScraper
+
+# Get the absolute path of the current script
+current_parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Calculate the path to the 'scripts' directory which is at the same level as 'tests'
+scripts_path = os.path.join(current_parent_dir, "scripts")
+# Add the 'scripts' directory to sys.path
+sys.path.append(scripts_path)
+
+from scripts.pagescrapers.nof_scraper import NofScraper
 
 
 @pytest.fixture
