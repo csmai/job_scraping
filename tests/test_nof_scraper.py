@@ -50,38 +50,38 @@ def test_get_job_info_data(scraper):
         job_tech_stack,
     ) = scraper.get_job_info_data(item_iter)
 
-    assert job_title == "Job Title"
-    assert company_name == ""  # Update with expected company name
-    assert job_summary == ""  # Update with expected job summary
-    assert job_link == "https://example.com/job/123"
-    assert job_tech_stack == []  # Update with expected tech stack list
+    assert job_title == "Test Job Title"
+    assert company_name == ""  # from subpage
+    assert job_summary == ""  # from subpage
+    assert "/testjob/123" in job_link
+    assert job_tech_stack == []  # from subpage
 
 
 def test_extract_job_tech_stack_from_result(scraper):
-    sample_html = """
+    html_input = """
     <section branch='musts'>
         <li>Technology 1</li>
         <li>Technology 2</li>
     </section>
     """
-    scraper.soup = BeautifulSoup(sample_html, "html.parser")
+    scraper.soup = BeautifulSoup(html_input, "html.parser")
     tech_stack_list = scraper.extract_job_tech_stack_from_result(scraper.soup)
     assert tech_stack_list == ["Technology 1", "Technology 2"]
 
 
 def test_extract_job_summary_from_subpage(scraper):
-    sample_html = """
+    html_input = """
     <h2>projekt rövid leírása</h2>
     <nfj-read-more><div>Job Summary Text</div></nfj-read-more>
     """
-    scraper.soup = BeautifulSoup(sample_html, "html.parser")
+    scraper.soup = BeautifulSoup(html_input, "html.parser")
     job_summary = scraper.extract_job_summary_from_subpage(scraper.soup)
     assert job_summary == "Job Summary Text"
 
 
 def test_extract_company_name_from_subpage(scraper):
-    sample_html = "<a id='postingCompanyUrl'>Company Name</a>"
-    scraper.soup = BeautifulSoup(sample_html, "html.parser")
+    html_input = "<a id='postingCompanyUrl'>Company Name</a>"
+    scraper.soup = BeautifulSoup(html_input, "html.parser")
     company_name = scraper.extract_company_name_from_subpage(scraper.soup)
     assert company_name == "Company Name"
 
