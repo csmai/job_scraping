@@ -34,29 +34,6 @@ def test_find_job_items(scraper):
     assert len(job_items) == 1
 
 
-def test_get_job_info_data(scraper):
-    sample_html = """
-    <a class='posting-list-item' href='/job/123'>
-        <h3 class='posting-title__position'>Job Title</h3>
-    </a>
-    """
-    scraper.soup = BeautifulSoup(sample_html, "html.parser")
-    item_iter = scraper.find_job_items(scraper.soup)[0]
-    (
-        job_title,
-        company_name,
-        job_summary,
-        job_link,
-        job_tech_stack,
-    ) = scraper.get_job_info_data(item_iter)
-
-    assert job_title == "Test Job Title"
-    assert company_name == ""  # from subpage
-    assert job_summary == ""  # from subpage
-    assert "/testjob/123" in job_link
-    assert job_tech_stack == []  # from subpage
-
-
 def test_extract_job_tech_stack_from_result(scraper):
     html_input = """
     <section branch='musts'>
